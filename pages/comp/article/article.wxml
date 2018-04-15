@@ -1,0 +1,12 @@
+<!--pages/comp/article/article.wxml-->
+<view class='article-global'>
+  <view class='article-tittle'>这套金砖国家必知考题，你能对多少</view>
+  <view class='article-other'>
+    <view style='margin-left:40rpx;'>2018-03-08</view>
+    <view style='margin-left:40rpx;'>浏览1000</view>
+    <image src=''></image>
+  </view>
+  <view class='article-body'>
+    {{articlebody}}
+  </view>
+</view>

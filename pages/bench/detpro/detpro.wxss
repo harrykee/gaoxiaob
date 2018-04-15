@@ -1,0 +1,146 @@
+/* pages/bench/detpro/detpro.wxss */
+.answer{
+  position: fixed;
+  bottom:0rpx;
+  height:100rpx;
+  width:100%;
+  background-color:#DE3344;
+  display:flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content: center;
+}
+.que-global{
+  width:100%;
+  height:auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quetioner{
+  height:auto;
+  width:100%;
+  margin-top:20rpx;
+  display:flex;
+  flex-direction: column;
+  padding-bottom: 20rpx;
+  
+}
+.quetion-infomatin{
+  height:110rpx;
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom:10rpx solid #FFFFFF;
+}
+.quetion-name-time{
+  height:auto;
+  width:400rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left:40rpx;
+}
+.cards{
+  height:auto;
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom:18rpx solid #EEEEEE;
+}
+.cards:last-child{
+  border-bottom:0rpx;
+}
+.que-card{
+  width:690rpx;
+  height:auto;
+}
+.answer-module{
+  width:100%;
+  height:auto;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.anwser-card{
+  border-bottom:1rpx solid #EEEEEE;
+}
+.anwser-card:last-child{
+  border-bottom:105rpx solid #FFFFFF;
+}
+.tittle{
+  height:100rpx;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 40rpx;
+  border-bottom: 3rpx solid #EEEEEE;
+}
+.quetioner{
+  height:auto;
+  width:100%;
+  margin-top:20rpx;
+  display:flex;
+  flex-direction: column;
+  padding-bottom: 20rpx;
+  
+}
+.quetion-infomatin{
+  height:110rpx;
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom:10rpx solid #FFFFFF;
+}
+.quetion-name-time{
+  height:auto;
+  width:400rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left:40rpx;
+}
+.cards{
+  height:auto;
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom:18rpx solid #EEEEEE;
+}
+.cards:last-child{
+  border-bottom:0rpx;
+}
+.que-card{
+  width:690rpx;
+  height:auto;
+}
+.answer-module{
+  width:100%;
+  height:auto;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.anwser-card{
+  border-bottom:1rpx solid #EEEEEE;
+}
+.anwser-card:last-child{
+  border-bottom:105rpx solid #FFFFFF;
+}
+.tittle{
+  height:100rpx;
+  width:718rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 30rpx;
+  border-bottom: 3rpx solid #EEEEEE;
+}

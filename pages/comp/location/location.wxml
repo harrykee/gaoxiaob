@@ -1,0 +1,4 @@
+<!--pages/comp/location/location.wxml-->
+<view>
+<map style='height:1000rpx;width:100%;'></map>
+</view>

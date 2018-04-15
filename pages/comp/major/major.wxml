@@ -1,0 +1,18 @@
+<!--pages/comp/major/major.wxml-->
+<view class='major-global'>
+  <view class='major-detail'>
+    <view class='majorname'>
+      计算机科学与技术
+    </view>
+    <view class='major-basic'>
+      <view>主干学科：计算机科学</view>
+      <view>主要课程：编译原理，计算机组成原理，操作系统</view>
+    </view>
+
+    <view class='otherdetail'>
+      <view>教学实践</view>
+      <view>毕业实践不少20周</view>
+    </view>
+  </view>
+  
+</view>

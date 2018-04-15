@@ -1,0 +1,47 @@
+/* pages/home/home.wxss */
+.title{
+  width: 728rpx;
+  height:80rpx;
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  padding-left: 20rpx;
+}
+.college-bad{
+  height:100rpx;
+  width:100rpx;
+  border-radius:50rpx;
+}
+.icons-background{
+  position: absolute;
+  right:40rpx;
+  height:110rpx;
+  width:110rpx;
+  margin-top:-44rpx;
+  border-radius:55rpx;
+  background-color:#FFFFFF;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.school-card{
+  width:100%;
+  height:auto;
+  border-radius: 10rpx;
+}
+.college-name{
+  margin-top:10rpx;
+  margin-left:30rpx;
+  font-size:40rpx;
+}
+.college-motto{
+  margin-top:10rpx;
+  margin-left:10rpx;
+  font-size:35rpx;
+}
+.college-add{
+  margin-left:30rpx;
+  font-size:30rpx;
+  color:#707070;
+}

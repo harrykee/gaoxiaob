@@ -1,0 +1,62 @@
+/* pages/home/detail/detail.wxss */
+page{
+  width:100%;
+  height:100%;
+}
+.swiper-tab{ 
+  height: 8%;
+  display: flex;
+  flex-direction: row;
+  border-bottom:16rpx solid #eeeeee;
+  text-align: center;
+} 
+
+.swiper-tab-item{ 
+  display: inline-block;  
+  width: 140rpx; 
+  margin-left: 38rpx;
+  padding-top: 30rpx;
+  font-size:34rpx; 
+} 
+.on{ color: #DE3344; 
+  border-bottom: 5rpx solid #DE3344;} 
+  
+.detail-list{
+  height:auto;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top:20rpx;
+}
+.list-card{
+  height:70rpx;
+  width:680rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.contet-text{
+  height:auto;
+  width:92%;
+  font-size:33rpx;
+}
+.college-table{
+  height:80rpx;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 35rpx;
+}
+.college-table:nth-child(ood){
+  background-color: #ffffff;
+}
+.college-table:nth-child(even){
+  background-color: #F3AD9C;
+}
+.map-like{
+  height:500rpx;
+  width:680rpx;
+}

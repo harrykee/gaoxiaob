@@ -1,0 +1,29 @@
+/* pages/comp/major/major.wxss */
+.major-global{
+  height:auto;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+}
+.major-detail{
+  height:auto;
+  width:92%;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+}
+.majorname{
+  height:80rpx;
+  width:100%;
+}
+.major-basic{
+  height:auto;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+}
+.otherdetail{
+  height:auto;
+  width:100%;
+}

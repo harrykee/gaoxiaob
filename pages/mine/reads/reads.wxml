@@ -1,0 +1,7 @@
+<!--pages/mine/reads/reads.wxml-->
+<view class='read-background'>
+  <view class='article-list'>
+    <view>高考资料</view>
+    
+  </view>
+</view>

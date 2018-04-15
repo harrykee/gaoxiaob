@@ -1,0 +1,74 @@
+<!--pages/home/detail/detail.wxml-->
+<swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" style='height: 34%;'>
+  <block wx:for="{{imgUrls}}" wx:key="key">
+    <swiper-item>
+      <image src="{{item.route}}" class="slide-image" style="width: {{imageWidth}}px;" />
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="swiper-tab"> 
+  <view class="swiper-tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">基本信息</view> 
+  <view class="swiper-tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">学校简介</view> 
+  <view class="swiper-tab-item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">学院设置</view> 
+  <view class="swiper-tab-item {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">专业设置</view>
+  
+</view> 
+<swiper current="{{currentTab}}" class="swiper-box" style="height:56%;" bindchange="bindChange"> 
+  <swiper-item> 
+   <view class='detail-list'> 
+    <view class='list-card'>
+      <view>学校名称：</view>
+      <view>厦门大学</view>    
+    </view>
+    <view class='list-card'>
+      <view>学校名称：</view>
+      <view>厦门大学</view>    
+    </view>
+    <view class='list-card'>
+      <view>学校名称：</view>
+      <view>厦门大学</view>    
+    </view>
+    <view class='list-card'>
+      <view>学校名称：</view>
+      <view>厦门大学</view>    
+    </view>
+    <view class='list-card'>
+      <view>学校地址：</view>
+      <view>厦门市思明区</view>    
+    </view>
+   </view>
+  </swiper-item> 
+  <swiper-item>
+  <scroll-view scroll-y style='height:100%;' >
+   <view class='detail-list'>
+    <text class='contet-text'>
+      {{school}}
+    </text>    
+   </view> 
+   </scroll-view> 
+  </swiper-item> 
+  <swiper-item> 
+   <view class='detail-list'>
+    <view style='width:94%;'>
+      <view class='college-table' wx:for="{{colleges}}" wx:key="key">
+        <view>{{item.name}}</view> 
+      </view>
+      
+    </view>
+   </view> 
+  </swiper-item> 
+  <swiper-item> 
+   <view class='detail-list'>
+    <view style='width:94%;'>
+      <view class='college-table' wx:for="{{colleges}}" wx:key="key">
+        <view>{{item.name}}</view> 
+      </view> 
+    </view>
+   </view> 
+  </swiper-item>
+</swiper>
+
+
+
+

@@ -1,0 +1,28 @@
+<!--pages/home/home.wxml-->
+
+
+<view>
+  <view class="title"> <image src='../../imgs/host.png' style='height:55rpx;width:55rpx;'/> <text style='margin-left:16rpx;'></text>
+  热门高校</view>
+  
+  <view class='school-card' wx:for="{{college}}" wx:key="key">
+  <navigator open-type='navigate' url='detail/detail'>
+    <image src='{{item.colimg}}' style='height:460rpx;width:100%;'/>
+    <view style='height:124rpx; width:100%;display:flex;flex-direction:row;'>
+      <view style='display:flex;flex-direction:column;'>
+        <view>
+          <text class="college-name">{{item.colname}}</text>
+        </view>
+        
+        <text class="college-add">{{item.coladd}}</text>
+      </view>
+      <view class='icons-background'>
+        <image src='{{item.colicon}}' class="college-bad"></image>
+      </view>
+      
+    </view>
+  </navigator>
+    
+  </view>
+
+</view>

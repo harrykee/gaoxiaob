@@ -1,0 +1,52 @@
+<!--pages/comp/ways/ways.wxml-->
+<view class='search-background'>
+  <view class='search-label'>
+    <view class='heading'>文理分科：</view>
+    <view class="swiper-tab">
+      <view class="swiper-tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">全部</view>
+      <view class="swiper-tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">文科</view>
+      <view class="swiper-tab-item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">理科</view>
+      <view class="swiper-tab-item {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">其他</view>
+    </view>
+  </view>
+  <view class='search-label'>
+    <view class='heading'>录取批次：</view>
+    <view class="swiper-tab">
+      <view class="swiper-tab-item {{currentTab1==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav1">全部</view>
+      <view class="swiper-tab-item {{currentTab1==1 ? 'on' : ''}}" data-current="1" style='width: 120rpx;' bindtap="swichNav1">提前批</view>
+      <view class="swiper-tab-item {{currentTab1==2 ? 'on' : ''}}" data-current="2" style='width: 120rpx;' bindtap="swichNav1">第一批</view>
+      <view class="swiper-tab-item {{currentTab1==3 ? 'on' : ''}}" data-current="3" style='width: 120rpx;' bindtap="swichNav1">第二批</view>
+    </view>
+  </view>
+  <view class='search-label'>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">
+        <text>{{array[index]}}</text>
+        <image src='../../../imgs/download.png' style='height:16rpx;width:16rpx;margin-left:15rpx;' />
+      </view>
+    </picker>
+
+    <input class='school-search' type='text' placeholder='请输入高校名称'/>
+    <view class='search-button'>查询</view>
+  </view>
+
+</view>
+
+<view class='score-table'>
+  <view class='th'>
+    <view class='td'>年份</view>
+    <view class='td' style='width:150rpx;'>录取批次</view>
+    <view class='td' >文理科</view>
+    <view class='td'>最高分</view>
+    <view class='td'>最低分</view>
+    <view class='td'>平均分</view>
+  </view>
+  <view class='tr' wx:for="{{enroll}}" wx:key="key">
+    <view class='td'>{{item.enyear}}</view>
+    <view class='td' style='width:150rpx;font-size:31rpx;'>{{item.batch}}</view>
+    <view class='td'>{{item.science}}</view>
+    <view class='td'>{{item.highest}}</view>
+    <view class='td'>{{item.lowest}}</view>
+    <view class='td'>{{item.average}}</view>
+  </view>
+</view>

@@ -1,0 +1,69 @@
+<!--pages/comp/comp.wxml-->
+<!-- <view class='search-card'>
+  <image src='../../imgs/logof.png' style='height:50rpx;width:120rpx;margin-top:6rpx;' />
+  <view class='search-background'>
+    <input class='search-write' type='text' placeholder='高校搜索' placeholder-style='color: #707070;font-size:33rpx;'></input>
+    <image src='../../imgs/search.png' style='height:50rpx;width:50rpx;' bindtap='ListSchools'></image>
+  </view>
+</view> -->
+
+<view class='comp-global'>
+  <view class='comp-list' style='background-color:#1482C1;' bindtap='GotoLines'>
+    <image src='../../imgs/table.png' style='height:60rpx;width:60rpx;'></image>
+    <text style='color:#FFFFFF;'>历年批次线</text>
+  </view>
+  <view class='comp-list' style='background-color:#89D453;' bindtap='ListSchools'>
+    <image src='../../imgs/degree.png' style='height:60rpx;width:60rpx;'></image>
+    <text style='color:#FFFFFF;'>高校检索</text>
+  </view>
+  <view class='comp-list' style='background-color:#F4585B;' bindtap='GotoWays'>
+    <image src='../../imgs/major.png' style='height:60rpx;width:60rpx;'></image>
+    <text style='color:#FFFFFF;'>院校录取线</text>
+  </view>
+  <view class='comp-list' style='background-color:#EFBB43;' bindtap='GotoKnows'>
+    <image src='../../imgs/search.png' style='height:60rpx;width:60rpx;'></image>
+    <text style='color:#FFFFFF;'>专业查询</text>
+  </view>
+  <view class='comp-list' style='background-color:#F7774A;' bindtap='GotoLines'>
+    <image src='../../imgs/table.png' style='height:60rpx;width:60rpx;'></image>
+    <text style='color:#FFFFFF;'>历年分数线</text>
+  </view>
+  <view class='comp-list' style='background-color:#C065A8;' bindtap='GotoLocation'>
+    <image src='../../imgs/local.png' style='height:60rpx;width:60rpx;'></image>
+    <text style='color:#FFFFFF;'>高校位置</text>
+  </view>
+</view>
+
+<view style='border-bottom:16rpx solid #E6E6E6;'>
+  <view class='new-tittle'>
+    <image src='../../imgs/new.png' style='margin-left:30rpx;height:50rpx;width:50rpx;' />
+    <text style='margin-left:10rpx;font-weight:bold;width:540rpx;'>高考知识点</text>
+    <text style='color:#de3344;font-size:44rpx;' bindtap='GetNewsMore'>更多</text>
+  </view>
+  <view wx:for="{{schnews}}" wx:key="key">
+    <navigator open-type='navigate' url='article/article'>
+      <view class='news-list'>
+        <image src='../../imgs/point.png' style='margin-left:30rpx;height:40rpx;width:40rpx;' />
+        <text style='margin-left:10rpx;'>{{item.news}}</text>
+      </view>
+    </navigator>
+
+  </view>
+</view>
+
+<view>
+  <view class='new-tittle'>
+    <image src='../../imgs/new.png' style='margin-left:30rpx;height:50rpx;width:50rpx;' />
+    <text style='margin-left:10rpx;font-weight:bold;width:540rpx;'>各科复习方法</text>
+    <text style='color:#de3344;font-size:44rpx;' bindtap='GetNewsMore'>更多</text>
+  </view>
+  <view wx:for="{{reviewways}}" wx:key="key">
+    <navigator open-type='navigate' url='article/article'>
+      <view class='news-list'>
+        <image src='../../imgs/point.png' style='margin-left:30rpx;height:40rpx;width:40rpx;' />
+        <text style='margin-left:10rpx;'>{{item.ways}}</text>
+      </view>
+    </navigator>
+
+  </view>
+</view>

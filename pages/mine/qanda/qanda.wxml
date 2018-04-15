@@ -1,0 +1,16 @@
+<!--pages/mine/qanda/qanda.wxml-->
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">我的提问</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">我的回答</view>
+  
+</view>
+<swiper current="{{currentTab}}"  duration="300" style="height:90%;margin-top:80rpx;" bindchange="bindChange">
+  <swiper-item>
+    <view>阿深V大V打算范德萨理科女删除不差那款</view>
+  </swiper-item>
+    
+  <swiper-item>
+    <view>是撒旦法师</view>
+  </swiper-item>
+
+</swiper>

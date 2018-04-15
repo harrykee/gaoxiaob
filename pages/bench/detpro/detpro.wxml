@@ -1,0 +1,56 @@
+<!--pages/bench/detpro/detpro.wxml-->
+<!-- <view class='quetioner'>
+          <view class='quetion-infomatin'>
+            <image src='{{item.head}}' style='height:80rpx;width:80rpx;  border-radius: 8rpx;' />
+            <view class='quetion-name-time'>
+              <text>木小鱼鱼</text>
+              <text style='font-size:30rpx;color:#E2E2E2;'>2018-04-03</text>
+            </view>
+          </view>
+          
+          <text style='font-size:38rpx;'>{{item.tittle}}</text>
+        </view> -->
+
+<view class='que-global'>
+  <view class='cards'>
+    <view class='que-card'>
+        <view class='quetioner'>
+          <view class='quetion-infomatin'>
+            <image src='../../../imgs/txmb.jpg' style='height:80rpx;width:80rpx;  border-radius: 8rpx;' />
+            <view class='quetion-name-time'>
+              <text>木小鱼鱼</text>
+              <text style='font-size:30rpx;color:#E2E2E2;'>2018-04-03</text>
+            </view>
+          </view>
+          
+          <text style='font-size:38rpx;'>aFASDK哦安东诺夫v阿森纳撒发生的开发的撒快女卡死就能看见三款插死你</text>
+        </view>
+    </view>
+  </view>
+  <view class='answer-module'>
+    <view class='tittle'> 
+      <image src='../../../imgs/anwsers.png' style='height:50rpx;width:50rpx;'/>
+      <text style='margin-left:20rpx;'>8条回答</text>
+    </view>
+    <view class='anwser-card' wx:for="{{anwsers}}" wx:key="key">
+    <view class='que-card'>
+        <view class='quetioner'>
+          <view class='quetion-infomatin'>
+            <image src='{{item.head}}' style='height:80rpx;width:80rpx;  border-radius: 8rpx;' />
+            <view class='quetion-name-time'>
+              <text>{{item.name}}</text>
+              <text style='font-size:30rpx;color:#E2E2E2;'>{{item.time}}</text>
+            </view>
+          </view>
+          
+          <text style='font-size:36rpx;'>{{item.anwser}}</text>
+        </view>
+    </view>
+  </view>
+  </view>
+</view>
+
+<view class='answer' bindtap="bindtapWrite">
+  <image src='../../../imgs/write.png' style='height:56rpx;width:56rpx;'></image>
+  <text style='color:#FFFFFF;margin-left:20rpx;'>我来回答</text>
+</view>

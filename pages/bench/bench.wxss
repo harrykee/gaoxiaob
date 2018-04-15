@@ -1,0 +1,85 @@
+/* pages/bench/bench.wxss */
+.question{
+  position: fixed;
+  top:6rpx;
+  right:20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:center;
+  height:70rpx;
+  width:124rpx;
+  color: #FFFFFF;
+  font-size:34rpx;
+  background-color:#DE3344;
+  border-radius: 8rpx;
+
+}
+.que-global{
+  width:100%;
+  height:auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.quetioner{
+  height:auto;
+  width:100%;
+  margin-top:20rpx;
+  display:flex;
+  flex-direction: column;
+  border-bottom:2rpx solid #EEEEEE;
+  padding-bottom: 20rpx;
+  
+}
+.quetion-infomatin{
+  height:110rpx;
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom:10rpx solid #FFFFFF;
+}
+.quetion-name-time{
+  height:auto;
+  width:400rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left:40rpx;
+}
+.cards{
+  height:auto;
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom:18rpx solid #EEEEEE;
+}
+.cards:last-child{
+  border-bottom:0rpx;
+}
+.que-card{
+  width:690rpx;
+  height:auto;
+}
+.que-label{
+  height:90rpx;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+}
+.que-tag{
+  height:88rpx;
+  width:247rpx;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  
+}
+.icons{
+  height:40rpx;
+  width:40rpx;
+}

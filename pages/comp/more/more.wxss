@@ -1,0 +1,17 @@
+/* pages/comp/more/more.wxss */
+.new-tittle{
+  height:96rpx;
+  width:100%;
+  border-bottom: 1rpx solid #EEEEEE;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+.news-list{
+  height:80rpx;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

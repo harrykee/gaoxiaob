@@ -1,0 +1,12 @@
+<!--pages/comp/more/more.wxml-->
+<view>
+  <view wx:for="{{schnews}}">
+    <navigator open-type='navigate' url='../article/article'>
+      <view class='news-list'>
+      <image src='../../../imgs/point.png' style='margin-left:30rpx;height:40rpx;width:40rpx;' />
+      <text style='margin-left:10rpx;'>{{item.news}}</text>
+    </view>
+    </navigator>
+    
+  </view>
+</view>

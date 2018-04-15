@@ -1,0 +1,58 @@
+<!--pages/mine/mine.wxml-->
+<view class="top-background">
+  <view>
+    <view class="background-img">
+      <image src='../../imgs/txmb.jpg' class="tx-img"></image>
+    </view>
+  </view>
+  <view class = 'username'>木小鱼</view>
+</view>
+
+<view class='strip-title' bindtap='LinkTonews'>
+  <view class='head-por'>
+    <image src='../../imgs/news.png' style='height:60rpx;width:60rpx;' />
+  </view>
+  <view class='headline'>
+    <text class='headedit'>我的消息</text>
+    <image src='../../imgs/arrows.png' style='height:60rpx;width:60rpx;'/>
+  </view>
+</view>
+
+<view class='strip-title' bindtap='LinkToqanda'>
+  <view class='head-por'>
+    <image src='../../imgs/quetion.png' style='height:60rpx;width:60rpx;' />
+  </view>
+  <view class='headline'>
+    <text class='headedit'>我的问答</text>
+    <image src='../../imgs/arrows.png' style='height:60rpx;width:60rpx;'/>
+  </view>
+</view>
+<view class='strip-title' bindtap='LinkToreads'>
+  <view class='head-por'>
+    <image src='../../imgs/read.png' style='height:60rpx;width:60rpx;' />
+  </view>
+  <view class='headline'>
+    <text class='headedit'>阅读记录</text>
+    <image src='../../imgs/arrows.png' style='height:60rpx;width:60rpx;'/>
+  </view>
+</view>
+<view class='strip-title' bindtap='LinkToreads'>
+  <view class='head-por'>
+    <image src='../../imgs/collec.png' style='height:60rpx;width:60rpx;' />
+  </view>
+  <view class='headline'>
+    <text class='headedit'>我的收藏</text>
+    <image src='../../imgs/arrows.png' style='height:60rpx;width:60rpx;'/>
+  </view>
+</view>
+
+
+<!-- <view class='strip-title'  open-type='share'>
+  <view class='head-por'>
+    <image src='../../imgs/share.png' style='height:60rpx;width:60rpx;' />
+  </view>
+  <button class='headline' >
+    <text class='headedit'>分享精彩</text>
+    <image src='../../imgs/arrows.png' style='height:60rpx;width:60rpx;'/>
+  </button>
+</view> -->

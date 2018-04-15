@@ -1,0 +1,58 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/home/detail/detail",
+    "pages/comp/comp",
+    "pages/comp/knows/knows",
+    "pages/comp/lines/lines",
+    "pages/comp/ways/ways",
+    "pages/comp/school/school",
+    "pages/comp/more/more",
+    "pages/comp/article/article",
+    "pages/comp/location/location",
+    "pages/comp/major/major",
+    "pages/comp/sundry/sundry",
+    "pages/mine/mine",
+    "pages/mine/news/news",
+    "pages/mine/qanda/qanda",
+    "pages/mine/reads/reads",
+    "pages/bench/bench",
+    "pages/bench/detpro/detpro",
+    "pages/bench/write/write",
+    "pages/bench/ask/ask"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#DE3344",
+    "navigationBarTitleText": "高校本",
+    "navigationBarTextStyle":"#FFFFFF"
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#de3344",
+    "list": [{
+      "pagePath": "pages/home/home",
+      "text": "首页",
+      "iconPath": "imgs/home.png",
+      "selectedIconPath": "imgs/home_sel.png"
+    },
+    {
+      "pagePath": "pages/comp/comp",
+      "text": "综合",
+      "iconPath": "imgs/alls.png",
+      "selectedIconPath": "imgs/alls_sel.png"
+    },
+    {
+      "pagePath": "pages/bench/bench",
+      "text": "问答",
+      "iconPath": "imgs/ques.png",
+      "selectedIconPath": "imgs/ques_sel.png"
+    },
+    {
+      "pagePath": "pages/mine/mine",
+      "text": "我的",
+      "iconPath": "imgs/mine.png",
+      "selectedIconPath": "imgs/mine_sel.png"
+    }]
+  }
+}

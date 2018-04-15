@@ -1,0 +1,24 @@
+<!--pages/comp/knows/knows.wxml-->
+<view class='search-card'>
+  <view class='search-background'>
+    <input class='search-write' type='text' placeholder='专业搜索' placeholder-style='color: #707070;font-size:33rpx;'></input>
+    <image src='../../../imgs/search.png' style='height:50rpx;width:50rpx;' bindtap='ListSchools'/>
+  </view>
+</view>
+
+<view class='sch-global'>
+  <view class='school-list' wx:for="{{majors}}">
+    <navigator style='display:flex;flex-direction:row;'  open-type='navigate' url='../major/major'>
+    <view class='include'>
+      <view class='major-name'>
+        {{item.majorname}}
+      </view>
+      <view class='major-detail'>
+        <view>授予学位门类：{{item.subject}}</view>
+        <view>相关专业：{{item.related}}</view>
+      </view>
+    </view>
+    </navigator>
+    
+  </view>
+</view>
