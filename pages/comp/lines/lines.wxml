@@ -14,12 +14,12 @@
 </view>
 
 <view class="swiper-tab">
-  <view class="swiper-tab-list {{convertTab==0 ? 'ons' : ''}}" data-current="0" bindtap="swichTab">2017</view>
-  <view class="swiper-tab-list {{convertTab==1 ? 'ons' : ''}}" data-current="1" bindtap="swichTab">2016</view>
-  <view class="swiper-tab-list {{convertTab==2 ? 'ons' : ''}}" data-current="2" bindtap="swichTab">2015</view>
-  <view class="swiper-tab-list {{convertTab==3 ? 'ons' : ''}}" data-current="3" bindtap="swichTab">2014</view>
-  <view class="swiper-tab-list {{convertTab==4 ? 'ons' : ''}}" data-current="4" bindtap="swichTab">2013</view>
-  <view class="swiper-tab-list {{convertTab==5 ? 'ons' : ''}}" data-current="5" bindtap="swichTab">2012</view>
+  <view class="swiper-tab-list {{convertTab==0 ? 'ons' : ''}}" data-current="0" bindtap="swichTab">{{year-1}}</view>
+  <view class="swiper-tab-list {{convertTab==1 ? 'ons' : ''}}" data-current="1" bindtap="swichTab">{{year-2}}</view>
+  <view class="swiper-tab-list {{convertTab==2 ? 'ons' : ''}}" data-current="2" bindtap="swichTab">{{year-3}}</view>
+  <view class="swiper-tab-list {{convertTab==3 ? 'ons' : ''}}" data-current="3" bindtap="swichTab">{{year-4}}</view>
+  <view class="swiper-tab-list {{convertTab==4 ? 'ons' : ''}}" data-current="4" bindtap="swichTab">{{year-5}}</view>
+  <view class="swiper-tab-list {{convertTab==5 ? 'ons' : ''}}" data-current="5" bindtap="swichTab">{{year-6}}</view>
 </view>
 
 <view class='score-table'>
@@ -30,11 +30,11 @@
     <view class='td' style='width:190rpx;'>录取批次</view>
     <view class='td'>控制线</view>
   </view>
-  <view class='tr' wx:for="{{enroll}}" wx:key="key">
-    <view class='td'>{{item.enyear}}</view>
-    <view class='td'>{{item.batch}}</view>
-    <view class='td'>{{item.highest}}</view>
-    <view class='td'style='width:190rpx;'>{{item.lowest}}</view>
-    <view class='td'>{{item.average}}</view>
+  <view class='tr' wx:for="{{batchlist}}" wx:key="key">
+    <view class='td'>{{item.fare_year}}</view>
+    <view class='td'>{{item.fare_lend}}</view>
+    <view class='td'>{{item.art_science}}</view>
+    <view class='td'style='width:190rpx;'>{{item.fare_batch}}</view>
+    <view class='td'>{{item.control_line}}</view>
   </view>
 </view>

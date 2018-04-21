@@ -63,69 +63,107 @@ Page({
       }
 
     });
+    var date = new Date()
+    that.setData({
+      year:date.getFullYear()
+    });
+    wx.request({
+      url: apiUrl,
+      data:{ac:'batchLine'},
+      success:res=>{
+        var years = res.data.years;
+        var one_aci = res.data.one_aci;
+        var one_art =res.data.one_art;
+        var two_aci = res.data.two_aci;
+        var two_art = res.data.two_art;
+        var trd_aci = res.data.trd_aci;
+        var trd_art = res.data.trd_art;
+
+        let windowWidth = 320;
+        try {
+          let res = wx.getSystemInfoSync();
+          windowWidth = res.windowWidth;
+        } catch (e) {
+          // do something when get system info failed
+        }
+
+        new wxCharts({
+          canvasId: 'columnCanvas',
+          type: 'line',
+          categories: years,
+          series: [{
+            name: '本科一批',
+            data: one_art,
+            format: function (val) {
+              return val;
+            }
+          },
+          {
+            name: '本科二批',
+            data: two_art,
+            format: function (val) {
+              return val;
+            }
+          }, {
+            name: '专科',
+            data: trd_art,
+            format: function (val) {
+              return val;
+            }
+          }],
+          yAxis: {
+            title: '分数',
+            format: function (val) {
+              return val;
+            },
+            min: 200
+          },
+          width: windowWidth,// 屏幕超出15px
+          height: 210
+        });
+
+        new wxCharts({
+          canvasId: 'lineCanvas',
+          type: 'line',
+          categories: years,
+          series: [{
+            name: '本科一批',
+            data: one_aci,
+            format: function (val) {
+              return val;
+            }
+          },
+          {
+            name: '本科二批',
+            data: two_aci,
+            format: function (val) {
+              return val;
+            }
+          }, {
+            name: '专科',
+            data: trd_aci,
+            format: function (val) {
+              return val;
+            }
+          }],
+          yAxis: {
+            title: '分数',
+            format: function (val) {
+              return val;
+            },
+            min: 200
+          },
+          width: windowWidth,// 屏幕超出15px
+          height: 210
+        });
+
+
+      }
+    })
   },
 
   onReady: function () {
     // 屏幕适配
-    let windowWidth = 320;
-    try {
-      let res = wx.getSystemInfoSync();
-      windowWidth = res.windowWidth;
-    } catch (e) {
-      // do something when get system info failed
-    }
-
-    new wxCharts({
-      canvasId: 'columnCanvas',
-      type: 'column',
-      categories: ['2012', '2013', '2014', '2015', '2016', '2017'],
-      series: [{
-        name: '成交量1',
-        data: [15, 20, 45, 37, 4, 80]
-      }, {
-        name: '成交量2',
-        data: [70, 40, 65, 100, 34, 18]
-      }],
-      yAxis: {
-        title: '成交金额 (万元)',
-        titleFontColor: '#7cb5ec',
-        format: function (val) {
-          return val + '万';
-        }
-      },
-      width: windowWidth,
-      height: 210,
-    });
-
-    new wxCharts({
-      canvasId: 'lineCanvas',
-      type: 'line',
-      categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
-      series: [{
-        name: '客单价1',
-        data: [0.10, 0.15, 0.2, 0.45, 0.37, 0.4, 0.8, 0.60, 0.2, 0.45, 0.37, 0.4, 0.8],
-        format: function (val) {
-          return val.toFixed(2) + '万';
-        }
-      }, {
-        name: '客单价2',
-        data: [0.25, 0.30, 0.37, 0.65, 0.78, 0.69, 0.94, 0.60, 0.37, 0.65, 0.78, 0.69, 0.94],
-        format: function (val) {
-          return val.toFixed(2) + '万';
-        }
-      }],
-      yAxis: {
-        title: '客单价 (万元)',
-        format: function (val) {
-          return val.toFixed(2);
-        },
-        min: 0
-      },
-      width: windowWidth ,// 屏幕超出15px
-      height: 210
-    });
-
-
   },
 
   swichNav: function (e) {
@@ -171,6 +209,21 @@ Page({
         convertTab: e.target.dataset.current
       })
     }
+    var num = e.target.dataset.current
+    var date = new Date()
+    var getyear = date.getFullYear()
+    var year = getyear-(num*1+1)
+    wx.request({
+      url: apiUrl,
+      data:{ac:'batchYear',year:year},
+      success:function(res){
+        that.setData({
+          batchlist:res.data
+        })
+        console.log(res.data)
+      }
+    })
+    console.log(year-(num*1+1))
   }
 
 });

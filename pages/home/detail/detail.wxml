@@ -43,7 +43,7 @@
   <scroll-view scroll-y style='height:100%;' >
    <view class='detail-list'>
     <text class='contet-text'>
-      {{school}}
+      {{abst}}
     </text>    
    </view> 
    </scroll-view> 

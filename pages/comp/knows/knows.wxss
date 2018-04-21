@@ -47,8 +47,8 @@
   height:179rpx;
   width:720rpx;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 .school-list:last-child{
   border-bottom:0rpx;
@@ -59,18 +59,9 @@
   flex-direction: column;
 }
 .major-name{
-  height:160rpx;
-  width:160rpx;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  font-weight: bold;
 }
 .major-detail{
-  height:160rpx;
-  width:540rpx;
-  margin-left:15rpx;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size:34rpx;
+  font-size:30rpx;
+  color: #707070;
 }

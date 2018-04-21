@@ -8,15 +8,12 @@
 
 <view class='sch-global'>
   <view class='school-list' wx:for="{{majors}}">
-    <navigator style='display:flex;flex-direction:row;'  open-type='navigate' url='../major/major'>
+    <navigator style='display:flex;flex-direction:column;'  open-type='navigate' url='../major/major'>
     <view class='include'>
-      <view class='major-name'>
-        {{item.majorname}}
-      </view>
-      <view class='major-detail'>
-        <view>授予学位门类：{{item.subject}}</view>
-        <view>相关专业：{{item.related}}</view>
-      </view>
+      <view>{{item.majorname}}</view> 
+      <text class='major-detail'>授予学位门类：{{item.subject}}</text>
+      <text class='major-detail'>相关专业：{{item.related}}</text>
+
     </view>
     </navigator>
     

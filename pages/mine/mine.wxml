@@ -2,10 +2,10 @@
 <view class="top-background">
   <view>
     <view class="background-img">
-      <image src='../../imgs/txmb.jpg' class="tx-img"></image>
+      <image src='{{userpic}}' class="tx-img"></image>
     </view>
   </view>
-  <view class = 'username'>木小鱼</view>
+  <view class = 'username'>{{username}}</view>
 </view>
 
 <view class='strip-title' bindtap='LinkTonews'>
@@ -45,6 +45,7 @@
     <image src='../../imgs/arrows.png' style='height:60rpx;width:60rpx;'/>
   </view>
 </view>
+
 
 
 <!-- <view class='strip-title'  open-type='share'>

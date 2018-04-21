@@ -1,10 +1,12 @@
 // pages/comp/comp.js
+var apiUrl = getApp().globalData.apiUrl;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    apiUrl:apiUrl,
     schnews:[{
       news:"2017年时事政治：2017厦门金砖会议",
     },
@@ -36,6 +38,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const that = this
+    wx.request({
+      url: apiUrl,
+      data:{ac:'artitle'},
+      success:function(res){
+        that.setData({
+          ktittles: res.data.ktitles,
+          wtittles: res.data.wtitles
+        })
+      }
+    })
   
   },
 

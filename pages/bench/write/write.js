@@ -1,4 +1,6 @@
 // pages/bench/write/write.js
+var apiUrl = getApp().globalData.apiUrl;
+var util = require('../../../utils/util.js')
 Page({
 
   /**
@@ -12,19 +14,47 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-  bindtapSubmit: function () {
-    wx.navigateBack({
-      delta: 1,
+    console.log(options.prokey)
+    this.setData({
+      prokey:options.prokey
     })
+  },
+  answerSubmit: function (e) {
+    var answer = e.detail.value.answer
+    var date = util.formatTime(new Date())
+    var prokey = this.data.prokey
+    if (answer == '') {
+      wx.showModal({
+        title: '你没有输入任何内容',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    }
+    else {
+      wx.request({
+        url: apiUrl,
+        data: {
+          ac: 'userAnwswer',
+          answer: answer,
+          userid: getApp().globalData.openid,
+          ansdate: date,
+          prokey: prokey
+        },
+        success: function (res) {
+          if (res.data == 'success') {
+            wx.navigateTo({
+              url: '../detpro/detpro?prokey='+prokey,
+            })
+          }
+        }
+      })
+    }
   },
 
   /**

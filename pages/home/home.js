@@ -1,12 +1,13 @@
 // pages/home/home.js
 var apiUrl = getApp().globalData.apiUrl;
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    apiUrl:apiUrl,   
+    apiUrl:apiUrl, 
     college:[
       {
         colimg:"../../imgs/jmu01.jpg",
@@ -58,16 +59,136 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.request({
-    //   url: apiUrl,
-    //   data:{
-    //     ac:"aaa",
-    //     name:'福州大学'
-    //   },
-    //   success:function(res){
-    //     console.log(res.data)
-    //   }
-    // })
+    var that = this
+    wx.request({
+      url: apiUrl,
+      data:{
+        ac:"hostuni",
+      },
+      success:function(res){
+        that.setData({
+          college: res.data.colist
+        })
+        // wx.getSetting({
+        //   success: res => {
+        //     if (res.authSetting['scope.userInfo']) {
+        //       wx.getUserInfo({
+        //         success: res => {
+        //           getApp().globalData.userInfo = res.userInfo
+        //           var nickName = res.userInfo.nickName
+        //           var avatarUrl = res.userInfo.avatarUrl
+        //           if (nickName && avatarUrl) {
+        //             wx.login({
+        //               success: res => {
+        //                 console.log(res.code)
+        //                 var code = res.code
+        //                 wx.request({
+        //                   url: 'https://www.wh14.club/api',
+        //                   data: {
+        //                     ac: "getOpenid",
+        //                     code: code
+        //                   },
+        //                   success: res => {
+        //                     console.log(res.data.openid)
+        //                     getApp().globalData.openid = res.data.openid
+        //                     var userid = res.data.openid
+        //                     wx.request({
+        //                       url: 'https://www.wh14.club/api',
+        //                       data: {
+        //                         ac: 'userExist',
+        //                         userid: userid
+        //                       },
+        //                       success: res => {
+        //                         console.log(res.data)
+        //                         if (res.data == 'no') {
+        //                           wx.request({
+        //                             url: 'https://www.wh14.club/api',
+        //                             data: {
+        //                               ac: 'userInfo',
+        //                               userid: userid,
+        //                               nickName: nickName,
+        //                               avatarUrl: avatarUrl
+        //                             },
+        //                             success: res => {
+        //                               console.log(res.data)
+        //                             }
+        //                           })
+        //                         }
+        //                       }
+        //                     })
+        //                   }
+        //                 })
+        //               }
+        //             })
+        //           }
+
+        //           if (this.userInfoReadyCallback) {
+        //             this.userInfoReadyCallback(res)
+        //           }
+        //         }
+        //       })
+        //     }
+        //     else{
+        //       wx.getUserInfo({
+        //         success: res => {
+        //           getApp().globalData.userInfo = res.userInfo
+        //           var nickName = res.userInfo.nickName
+        //           var avatarUrl = res.userInfo.avatarUrl
+        //           if (nickName && avatarUrl) {
+        //             wx.login({
+        //               success: res => {
+        //                 console.log(res.code)
+        //                 var code = res.code
+        //                 wx.request({
+        //                   url: 'https://www.wh14.club/api',
+        //                   data: {
+        //                     ac: "getOpenid",
+        //                     code: code
+        //                   },
+        //                   success: res => {
+        //                     console.log(res.data.openid)
+        //                     getApp().globalData.openid = res.data.openid
+        //                     var userid = res.data.openid
+        //                     wx.request({
+        //                       url: 'https://www.wh14.club/api',
+        //                       data: {
+        //                         ac: 'userExist',
+        //                         userid: userid
+        //                       },
+        //                       success: res => {
+        //                         console.log(res.data)
+        //                         if (res.data == 'no') {
+        //                           wx.request({
+        //                             url: 'https://www.wh14.club/api',
+        //                             data: {
+        //                               ac: 'userInfo',
+        //                               userid: userid,
+        //                               nickName: nickName,
+        //                               avatarUrl: avatarUrl
+        //                             },
+        //                             success: res => {
+        //                               console.log(res.data)
+        //                             }
+        //                           })
+        //                         }
+        //                       }
+        //                     })
+        //                   }
+        //                 })
+        //               }
+        //             })
+        //           }
+
+        //           if (this.userInfoReadyCallback) {
+        //             this.userInfoReadyCallback(res)
+        //           }
+        //         }
+        //       })  
+        //     }
+        //   }
+        // })
+      }
+    })
   },
 
   /**

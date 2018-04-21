@@ -36,15 +36,16 @@
 
 <view style='border-bottom:16rpx solid #E6E6E6;'>
   <view class='new-tittle'>
-    <image src='../../imgs/new.png' style='margin-left:30rpx;height:50rpx;width:50rpx;' />
+    <image src='../../imgs/new.png' style='margin-left:30rpx;height:46rpx;width:46rpx;' />
+
     <text style='margin-left:10rpx;font-weight:bold;width:540rpx;'>高考知识点</text>
-    <text style='color:#de3344;font-size:44rpx;' bindtap='GetNewsMore'>更多</text>
+    <text style='color:#de3344;font-size:42rpx;' bindtap='GetNewsMore'>更多</text>
   </view>
-  <view wx:for="{{schnews}}" wx:key="key">
+  <view wx:for="{{ktittles}}" wx:key="key">
     <navigator open-type='navigate' url='article/article'>
       <view class='news-list'>
         <image src='../../imgs/point.png' style='margin-left:30rpx;height:40rpx;width:40rpx;' />
-        <text style='margin-left:10rpx;'>{{item.news}}</text>
+        <text style='margin-left:10rpx;font-size:34rpx;'>{{item.title}}</text>
       </view>
     </navigator>
 
@@ -53,15 +54,15 @@
 
 <view>
   <view class='new-tittle'>
-    <image src='../../imgs/new.png' style='margin-left:30rpx;height:50rpx;width:50rpx;' />
+    <image src='../../imgs/new.png' style='margin-left:30rpx;height:46rpx;width:46rpx;' />
     <text style='margin-left:10rpx;font-weight:bold;width:540rpx;'>各科复习方法</text>
-    <text style='color:#de3344;font-size:44rpx;' bindtap='GetNewsMore'>更多</text>
+    <text style='color:#de3344;font-size:42rpx;' bindtap='GetNewsMore'>更多</text>
   </view>
-  <view wx:for="{{reviewways}}" wx:key="key">
+  <view wx:for="{{wtittles}}" wx:key="key">
     <navigator open-type='navigate' url='article/article'>
       <view class='news-list'>
         <image src='../../imgs/point.png' style='margin-left:30rpx;height:40rpx;width:40rpx;' />
-        <text style='margin-left:10rpx;'>{{item.ways}}</text>
+        <text style='margin-left:10rpx;font-size:34rpx;'>{{item.title}}</text>
       </view>
     </navigator>
 

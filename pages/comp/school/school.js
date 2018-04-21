@@ -1,10 +1,12 @@
 // pages/comp/school/school.js
+const apiUrl = getApp().globalData.apiUrl
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    apiUrl:apiUrl,
     schools:[
       {badge:"../../../imgs/jmu.jpg",
         name: "集美大学",
@@ -46,7 +48,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    const that =this
+    wx.request({
+      url: apiUrl,
+      data:{ac:'schooList'},
+      success:function(res){
+        that.setData({
+          slist:res.data.schoolist
+        })
+      }
+    })
   },
 
   /**

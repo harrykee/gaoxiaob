@@ -6,12 +6,6 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -21,7 +15,115 @@ App({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
-
+              var nickName = res.userInfo.nickName
+              var avatarUrl = res.userInfo.avatarUrl
+              if (nickName && avatarUrl) {
+                // 登录
+                wx.login({
+                  success: res => {
+                    console.log(res.code)
+                    var code = res.code
+                    wx.request({
+                      url: 'https://www.wh14.club/api',
+                      data: {
+                        ac: "getOpenid",
+                        code: code
+                      },
+                      success: res => {
+                        console.log(res.data.openid)
+                        this.globalData.openid = res.data.openid
+                        var userid = res.data.openid
+                        wx.request({
+                          url: 'https://www.wh14.club/api',
+                          data: {
+                            ac: 'userExist',
+                            userid: userid
+                          },
+                          success: res => {
+                            console.log(res.data)
+                            if (res.data == 'no') {
+                              wx.request({
+                                url: 'https://www.wh14.club/api',
+                                data: {
+                                  ac: 'userInfo',
+                                  userid: userid,
+                                  nickName: nickName,
+                                  avatarUrl: avatarUrl
+                                },
+                                success: res => {
+                                  console.log(res.data)
+                                }
+                              })
+                            }
+                          }
+                        })
+                      }
+                    })
+                    // 发送 res.code 到后台换取 openId, sessionKey, unionId
+                  }
+                })
+              }
+              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+              // 所以此处加入 callback 以防止这种情况
+              if (this.userInfoReadyCallback) {
+                this.userInfoReadyCallback(res)
+              }
+            }
+          })
+        }
+        else {
+          wx.getUserInfo({
+            success: res => {
+              // 可以将 res 发送给后台解码出 unionId
+              this.globalData.userInfo = res.userInfo
+              var nickName = res.userInfo.nickName
+              var avatarUrl = res.userInfo.avatarUrl
+              if (nickName && avatarUrl) {
+                // 登录
+                wx.login({
+                  success: res => {
+                    console.log(res.code)
+                    var code = res.code
+                    wx.request({
+                      url: 'https://www.wh14.club/api',
+                      data: {
+                        ac: "getOpenid",
+                        code: code
+                      },
+                      success: res => {
+                        console.log(res.data.openid)
+                        this.globalData.openid = res.data.openid
+                        var userid = res.data.openid
+                        wx.request({
+                          url: 'https://www.wh14.club/api',
+                          data: {
+                            ac: 'userExist',
+                            userid: userid
+                          },
+                          success: res => {
+                            console.log(res.data)
+                            if (res.data == 'no') {
+                              wx.request({
+                                url: 'https://www.wh14.club/api',
+                                data: {
+                                  ac: 'userInfo',
+                                  userid: userid,
+                                  nickName: nickName,
+                                  avatarUrl: avatarUrl
+                                },
+                                success: res => {
+                                  console.log(res.data)
+                                }
+                              })
+                            }
+                          }
+                        })
+                      }
+                    })
+                    // 发送 res.code 到后台换取 openId, sessionKey, unionId
+                  }
+                })
+              }
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
