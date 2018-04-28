@@ -5,11 +5,10 @@
     <input class='search-write' type='text' placeholder='高校搜索' placeholder-style='color: #707070;font-size:33rpx;' bindinput='searchInput' />
   </view>
   <view class='result'>
-    <view class='result-list' wx:for="{{resultlist}}" wx:key="key">
-    <navigator open-type='navigate' url='../location/location?lat={{item.location.lat}}&lng={{item.location.lng}}'>
+    <view class='result-list' data-lat="{{item.location.lat}}" data-lng="{{item.location.lng}}" wx:for="{{resultlist}}" wx:key="key" bindtap='getValues'>
+    <!-- <navigator open-type='navigate' url=''> -->
       <text>{{item.title}}</text>
-    </navigator>
-    
+
     </view>  
   </view>
 </view>

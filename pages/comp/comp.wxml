@@ -5,22 +5,27 @@
     <image src='../../imgs/table.png' style='height:60rpx;width:60rpx;'></image>
     <text style='color:#FFFFFF;'>地区批次线</text>
   </view>
-  <view class='comp-list' style='background-color:#89D453;' bindtap='ListSchools'>
-    <image src='../../imgs/degree.png' style='height:60rpx;width:60rpx;'></image>
-    <text style='color:#FFFFFF;'>高校检索</text>
-  </view>
+  
   <view class='comp-list' style='background-color:#F4585B;' bindtap='GotoWays'>
     <image src='../../imgs/major.png' style='height:60rpx;width:60rpx;'></image>
     <text style='color:#FFFFFF;'>院校录取线</text>
   </view>
+
+  <view class='comp-list' style='background-color:#89D453;' bindtap='GotoSundry'>
+    <image src='../../imgs/table.png' style='height:60rpx;width:60rpx;'></image>
+    <text style='color:#FFFFFF;'>专业分数线</text>
+  </view>
+
   <view class='comp-list' style='background-color:#EFBB43;' bindtap='GotoKnows'>
     <image src='../../imgs/search.png' style='height:60rpx;width:60rpx;'></image>
     <text style='color:#FFFFFF;'>专业查询</text>
   </view>
-  <view class='comp-list' style='background-color:#F7774A;' bindtap='GotoSundry'>
-    <image src='../../imgs/table.png' style='height:60rpx;width:60rpx;'></image>
-    <text style='color:#FFFFFF;'>专业分数线</text>
+  
+  <view class='comp-list' style='background-color:#F7774A;' bindtap='ListSchools'>
+    <image src='../../imgs/degree.png' style='height:60rpx;width:60rpx;'></image>
+    <text style='color:#FFFFFF;'>高校检索</text>
   </view>
+
   <view class='comp-list' style='background-color:#C065A8;' bindtap='GotoLocation'>
     <image src='../../imgs/local.png' style='height:60rpx;width:60rpx;'></image>
     <text style='color:#FFFFFF;'>高校位置</text>

@@ -40,4 +40,14 @@ Page({
       });
     }
   },
+  getValues:function(e){
+    var lat = e.currentTarget.dataset.lat
+    var lng = e.currentTarget.dataset.lng
+    wx.redirectTo({
+        url: '../location/location?lat='+lat+'&lng='+lng,
+    })
+    
+    console.log(e.currentTarget.dataset.lat)
+    console.log(e.currentTarget.dataset.lng)
+  }
 })

@@ -92,7 +92,7 @@ Page({
     
   },
   toMapSearch:function(){
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../search/search',
       success: function(res) {},
       fail: function(res) {},

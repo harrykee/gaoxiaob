@@ -3,7 +3,8 @@
 <view class="tab">
   <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
     <view class="picker">
-      <text>{{array[index]}} </text> <image src='../../../imgs/select.png' style='height:33rpx;width:33rpx;margin-left:40rpx;margin-top:5rpx;'/>
+      <text>{{array[index]}} </text>
+      <image src='../../../imgs/select.png' style='height:33rpx;width:33rpx;margin-left:40rpx;margin-top:5rpx;' />
     </view>
   </picker>
   <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">文科</view>
@@ -27,19 +28,19 @@
   <view class="swiper-tab-list {{yearTab==5 ? 'ons' : ''}}" data-current="5" bindtap="swichTab">{{year-6}}</view>
 </view>
 
-<view class='score-table'>
-  <view class='th'>
-    <view class='td'>年份</view>
-    <view class='td'>生源地</view>
-    <view class='td'>文理分科</view>
-    <view class='td' style='width:190rpx;'>录取批次</view>
-    <view class='td'>控制线</view>
-  </view>
-  <view class='tr' wx:for="{{batchlist}}" wx:key="key">
-    <view class='td'>{{item.fare_year}}</view>
-    <view class='td'>{{item.fare_lend}}</view>
-    <view class='td'>{{item.art_science}}</view>
-    <view class='td'style='width:190rpx;font-size:28rpx;'>{{item.fare_batch}}</view>
-    <view class='td'>{{item.control_line}}</view>
-  </view>
+<!-- <view class='score-table'> -->
+<view class='th'>
+  <view class='td'>年份</view>
+  <view class='td'>生源地</view>
+  <view class='td'>文理分科</view>
+  <view class='td' style='width:190rpx;'>录取批次</view>
+  <view class='td'>控制线</view>
 </view>
+<view class='tr' wx:for="{{batchlist}}" wx:key="key">
+  <view class='td'>{{item.fare_year}}</view>
+  <view class='td'>{{item.fare_lend}}</view>
+  <view class='td'>{{item.art_science}}</view>
+  <view class='td' style='width:190rpx;font-size:28rpx;'>{{item.fare_batch}}</view>
+  <view class='td'>{{item.control_line}}</view>
+</view>
+<!-- </view> -->
