@@ -1,13 +1,56 @@
 /* pages/mine/reads/reads.wxss */
-.read-background{
+page{
+  height:100%;
   width:100%;
-  height:auto;
-  display:flex;
-  flex-direction:column;
-  align-items: centrr;
 }
-.article-list{
-  height:180rpx;
+.global-back{
+  height:auto;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.new-tittle{
+  height:auto;
   width:92%;
-  border-bottom:1rpx solid #EEEEEE;
+  border-bottom: 1rpx solid #EEEEEE;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+.news-list{
+  height:auto;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-tittle{
+  font-size:36rpx;
+  font-weight: bold;
+  margin-top:15rpx;
+}
+.item-context{
+  font-size:30rpx;
+  color:#707070;
+  margin-top:10rpx;
+}
+.item-all{
+  display:flex;
+  flex-direction: row;
+  border-bottom: 15rpx solid #FFFFFF;
+}
+.item-date{
+  font-size:22rpx;
+  margin-top:10rpx;
+  color:#707070;
+  margin-left:240rpx;
+}
+.item-class{
+  font-size:22rpx;
+  margin-top:10rpx;
+  color:#DE3344;
+  width:200rpx;
 }

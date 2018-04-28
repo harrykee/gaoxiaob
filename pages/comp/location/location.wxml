@@ -1,4 +1,11 @@
 <!--pages/comp/location/location.wxml-->
-<view>
-<map style='height:1000rpx;width:100%;'></map>
+<view class='map-head' >
+  <image src='../../../imgs/searchadd.png' class='search-address'bindtap='toMapSearch'/>
 </view>
+<map longitude="{{lng}}" latitude="{{lat}}" style="width:100%; height:92%;" markers="{{markers}}" bindmarkertap="markertap" circles="{{circles}}" polyline="{{polyline}}">
+  <cover-view class='display-address'>
+    <cover-view>我的位置：{{nowAdress}}</cover-view>
+    <cover-view>目标位置：{{address}}</cover-view>
+    
+  </cover-view>
+</map>

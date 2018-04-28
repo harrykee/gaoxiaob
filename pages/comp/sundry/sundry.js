@@ -1,66 +1,113 @@
 // pages/comp/sundry/sundry.js
+const apiUrl = getApp().globalData.apiUrl;
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    apiUrl:apiUrl,
+    pageSize:15,
+    start:0,
+    searchm:'',
+    searchc:'',
+    isFromSearch:true
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-  
+    var start = 0
+    var pageSize = this.data.pageSize
+    const that = this
+    var searchm = ""
+    var searchc = ""
+    wx.request({
+      url: apiUrl,
+      data:{
+        ac:'majorScore',
+        start:start,
+        pageSize:pageSize,
+        searchm:searchm,
+        searchc:searchc
+      },
+      success:function(res){
+        that.setData({
+          scorelist: res.data.scorelist
+        })
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  majorInput: function (e) {
+    this.setData({
+      searchm: e.detail.value
+    })
+  },
+  schoolInput: function (e) {
+    this.setData({
+      searchc: e.detail.value
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  ScrollLower: function () {
+    var pageSize = this.data.pageSize
+    var start = this.data.start
+    let that = this;
+    that.setData({
+      start: (start * 1) + (pageSize * 1),
+      isFromSearch: false
+    });
+    that.loadMore();
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
+  loadMore: function () {
+    wx.showLoading({
+      title: '加载更多...',
+    })
+    let searchList = []
+    var start = this.data.start
+    var pageSize = this.data.pageSize
+    var searchm = this.data.searchm
+    var searchc = this.data.searchc
+    var that = this
+    wx.request({
+      url: apiUrl,
+      data: {
+        ac: 'majorScore',
+        start: start,
+        pageSize: pageSize,
+        searchm: searchm,
+        searchc: searchc
+      },
+      success: function (res) {
+        that.data.isFromSearch ? searchList = res.data.scorelist : searchList = that.data.scorelist.concat(res.data.scorelist)
+        that.setData({
+          scorelist: searchList
+        })
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
+        setTimeout(function () {
+          wx.hideLoading()
+        })
+      }
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  searchScore:function(){
+    this.data.scorelist = []
+    var start = 0
+    var pageSize = this.data.pageSize
+    var searchm = this.data.searchm
+    var searchc = this.data.searchc
+    var that = this
+    wx.request({
+      url: apiUrl,
+      data: {
+        ac: 'majorScore',
+        start: start,
+        pageSize: pageSize,
+        searchm: searchm,
+        searchc: searchc
+      },
+      success: function (res) {
+        that.setData({
+          scorelist: res.data.scorelist
+        })
+      }
+    })
   }
+
 })

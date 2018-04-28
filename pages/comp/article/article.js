@@ -1,18 +1,114 @@
 // pages/comp/article/article.js
+const apiUrl = getApp().globalData.apiUrl;
+var util = require('../../../utils/util.js')
+var WxParse = require('../../../wxParse/wxParse.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    articlebody: "厦门大学（Xiamen University），简称厦大（XMU），由著名爱国华侨领袖陈嘉庚先生于1921年创办，是中国近代教育史上第一所华侨创办的大学，也是国家“211工程”和“985工程”重点建设的高水平大学。 建校以来，学校秉承“自强不息，止于至善”的校训，积累了丰富的办学经验，形成了鲜明的办学特色，成为一所学科门类齐全、师资力量雄厚、居国内一流、在国际上有广泛影响的综合性大学。建校迄今，已先后为国家培养了30多万名本科生和研究生，在厦大学习、工作过的两院院士达60多人。 学校设有研究生院、6个学部以及28个学院（含76个系）和14个研究院，形成了包括人文科学、社会科学、自然科学、工程与技术科学、管理科学、艺术科学、医学科学等学科门类在内的完备学科体系。学校现有11个学科进入ESI全球前1%，拥有5个一级学科国家重点学科、9个二级学科国家重点学科、17个一级学科福建省特色重点学科、46个福建省一级学科重点学科，9个国家基础科学人才培养基地。拥有31个博士后流动站；31个博士学位授权一级学科，5个博士学位授权二级学科；50个硕士学位授权一级学科，5个硕士学位授权二级学科；9个交叉学科；24个专业学位学科授权。"
+    apiUrl:apiUrl,
+    notchidden:true,
+    collhidden:true,
+    notcoll:'../../../imgs/collection.png',
+    collection:'../../../imgs/collection_fill.png'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    const that = this
+    var articlekey = options.articlekey
+    var date = util.formatTime(new Date())
+    console.log(options.articlekey)
+    wx.request({
+      url: apiUrl,
+      data:{
+        ac:'addArticleViews',
+        articlekey:articlekey,
+        userid:getApp().globalData.openid,
+        readdate:date
+      },
+      success:function(res){
+        wx.request({
+          url: apiUrl,
+          data: {
+            ac: 'articleDetail',
+            articlekey: articlekey,
+            userid:getApp().globalData.openid
+          },
+          success: function (res) {
+            var article = res.data.context
+            WxParse.wxParse('article', 'html', article, that);
+            that.setData({
+              tittle:res.data.tittle,
+              artdate: res.data.artdate,
+              views: res.data.views,
+              artview:'../../../imgs/view.png',
+              collect:res.data.collect,
+              artkey:res.data.artkey
+            })
+            if(res.data.collect == 'coll'){
+              that.setData({
+                collhidden: false,
+              })
+            }
+            else{
+              that.setData({
+                notchidden: false,
+              })
+            } 
+          }
+        })
+      }
+    })
+    
+  },
+
+
+  collectionBind:function(){
+    var artkey = this.data.artkey
+    const that = this
+    wx.request({
+      url: apiUrl,
+      data: {
+        ac: 'notArticleCollect',
+        artkey: artkey,
+        userid: getApp().globalData.openid
+      },
+      success: function (res) {
+        if (res.data == 'success') {
+          that.setData({
+            collhidden: true,
+            notchidden: false
+          })
+        }
+      }
+    })
+  },
+  notcollectionBind: function () {
+    var date = util.formatTime(new Date())
+    var artkey = this.data.artkey
+    const that = this
+    wx.request({
+      url: apiUrl,
+      data:{
+        ac:'articleCollect',
+        artkey:artkey,
+        colldate:date,
+        userid:getApp().globalData.openid
+      },
+      success:function(res){
+        if(res.data == 'success'){
+          that.setData({
+            collhidden: false,
+            notchidden: true
+          })
+        }
+      }
+    })
   },
 
   /**

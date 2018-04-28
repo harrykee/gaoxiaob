@@ -1,7 +1,18 @@
 <!--pages/mine/reads/reads.wxml-->
-<view class='read-background'>
-  <view class='article-list'>
-    <view>高考资料</view>
-    
+<scroll-view scroll-y bindscrolltolower="scrollLower" style='height:100%;width:100%;'>
+  <view class='global-back'>
+    <view wx:for="{{articleList}}" class='new-tittle'>
+      <navigator open-type='navigate' url='../../comp/article/article?articlekey={{item.artkey}}'>
+        <view class='news-list'>
+          <text class='item-tittle'>{{item.tittle}}</text>
+          <text class='item-context'>{{item.context}}</text>
+          <view class='item-all'>
+            <view class='item-class'>{{item.classname}}</view>
+            <view class='item-date'>{{item.artdate}}</view>
+          </view>
+          
+        </view>
+      </navigator>
+    </view>
   </view>
-</view>
+</scroll-view>

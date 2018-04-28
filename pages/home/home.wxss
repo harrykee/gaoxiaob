@@ -28,7 +28,6 @@
 .school-card{
   width:100%;
   height:auto;
-  border-radius: 10rpx;
 }
 .college-name{
   margin-top:10rpx;

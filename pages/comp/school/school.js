@@ -7,41 +7,10 @@ Page({
    */
   data: {
     apiUrl:apiUrl,
-    schools:[
-      {badge:"../../../imgs/jmu.jpg",
-        name: "集美大学",
-        address: "厦门市集美区"},
-      {
-        badge: "../../../imgs/jmu.jpg",
-        name: "集美大学",
-        address: "厦门市集美区"
-      },
-      {
-        badge: "../../../imgs/jmu.jpg",
-        name: "集美大学",
-        address: "厦门市集美区"
-      },
-      {
-        badge: "../../../imgs/jmu.jpg",
-        name: "集美大学",
-        address: "厦门市集美区"
-      },
-      {
-        badge: "../../../imgs/jmu.jpg",
-        name: "集美大学",
-        address: "厦门市集美区"
-      },
-      {
-        badge: "../../../imgs/jmu.jpg",
-        name: "集美大学",
-        address: "厦门市集美区"
-      },
-      {
-        badge: "../../../imgs/jmu.jpg",
-        name: "集美大学",
-        address:"厦门市集美区"
-      },
-    ]
+    start:0,
+    pageSize:8,
+    isFormload:true,
+    search:'',
   },
 
   /**
@@ -49,9 +18,17 @@ Page({
    */
   onLoad: function (options) {
     const that =this
+    var start = 0
+    var pageSize =this.data.pageSize
+    var search = this.data.search
     wx.request({
       url: apiUrl,
-      data:{ac:'schooList'},
+      data:{
+        ac:'schooList',
+        start:start,
+        pageSize:pageSize,
+        search:search
+      },
       success:function(res){
         that.setData({
           slist:res.data.schoolist
@@ -59,53 +36,66 @@ Page({
       }
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  scrollLower: function () {
+    var pageSize = this.data.pageSize
+    var start = this.data.start
+    let that = this;
+    that.setData({
+      start: (start * 1) + (pageSize * 1),
+      isFormload: false
+    });
+    that.loadMore();
   },
+  loadMore: function () {
+    wx.showLoading({
+      title: '加载更多...',
+    })
+    let searchList = []
+    var start = this.data.start
+    var pageSize = this.data.pageSize
+    var search = this.data.search
+    var that = this
+    wx.request({
+      url: apiUrl,
+      data: {
+        ac: 'schooList',
+        start: start,
+        pageSize: pageSize,
+        search: search
+      },
+      success: function (res) {
+        that.data.isFormload ? searchList = res.data.schoolist : searchList = that.data.slist.concat(res.data.schoolist)
+        that.setData({
+          slist: searchList
+        })
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+        setTimeout(function () {
+          wx.hideLoading()
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  searchInput: function (e) {
+    const that = this
+    var search = e.detail.value
+    var start = 0
+    var pageSize = this.data.pageSize
+    wx.request({
+      url: apiUrl,
+      data: {
+        ac: 'schooList',
+        start: start,
+        pageSize: pageSize,
+        search: search
+      },
+      success: function (res) {
+        that.setData({
+          slist: res.data.schoolist
+        })
+      }
+    })
+    that.setData({
+      search: search
+    })
   }
 })

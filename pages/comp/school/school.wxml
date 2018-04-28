@@ -1,23 +1,26 @@
 <!--pages/comp/school/school.wxml-->
 <view class='search-card'>
   <view class='search-background'>
-    <input class='search-write' type='text' placeholder='高校搜索' placeholder-style='color: #707070;font-size:33rpx;'></input>
-    <image src='../../../imgs/search.png' style='height:50rpx;width:50rpx;' bindtap='ListSchools'/>
-  </view>
-</view>
+    <image src='../../../imgs/serchs.png' style='height:60rpx;width:60rpx;margin-left:14rpx;' />
+    <input class='search-write' type='text' placeholder='高校搜索' placeholder-style='color: #707070;font-size:33rpx;' bindinput='searchInput' />
 
-<view class='sch-global'>
-  <view class='school-list' wx:for="{{slist}}">
-    <navigator style='display:flex;flex-direction:row;'  open-type='navigate' url='../../home/detail/detail?schid={{item.skey}}'>
-    <view class='include'>
-      <image src='{{item.sbadge}}' style='height:90rpx;width:90rpx;'></image>
-    <view class='school-detail'>
-      <view>{{item.sname}}</view>
-      <view style='font-size:30rpx;color:#020202;'>{{item.saddress}}</view>
-    </view>
-    </view>
-      
-    </navigator>
-    
   </view>
 </view>
+<scroll-view scroll-y bindscrolltolower="scrollLower" style='height:92%;'>
+  <view class='sch-global'>
+    <view class='school-list' wx:for="{{slist}}">
+      <navigator style='display:flex;flex-direction:row;' open-type='navigate' url='../../home/detail/detail?schid={{item.skey}}'>
+        <view class='include'>
+          <image src='{{item.sbadge}}' style='height:90rpx;width:90rpx;'></image>
+          <view class='school-detail'>
+            <view>{{item.sname}}</view>
+            <view style='font-size:30rpx;color:#020202;'>{{item.saddress}}</view>
+          </view>
+        </view>
+
+      </navigator>
+
+    </view>
+  </view>
+
+</scroll-view>

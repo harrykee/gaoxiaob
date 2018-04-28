@@ -1,7 +1,7 @@
 <!--pages/bench/bench.wxml-->
- <view class='quetion-back'>
-  <input class='input-like' bindinput='searchInput'></input>
-  <view class='question' bindtap='bindtapAsk'>提问</view>
+ <view class='quetion-back'> 
+  <view class='input-like'><image src='../../imgs/serchs.png' class='search-img'/><input class='input' placeholder='输入你想知道的问题' placeholder-style='color: #bfbfbf;font-size:30rpx;' bindinput='searchInput'/></view>
+  <image src='../../imgs/ask.png' class='addask' bindtap='bindtapAsk'/>
 </view> 
   
 
@@ -24,15 +24,15 @@
         <view class='que-label'>
           <view class='que-tag'>
             <image src='../../imgs/clock.png' class='icons' />
-            <view>{{item.time}}</view>
+            <view class='return-num'>{{item.diffd}}</view>
           </view>
           <view class='que-tag'>
             <image src='../../imgs/ping.png' class='icons' />
-            <view>{{item.ansnum}}</view>
+            <view class='return-num'>{{item.ansnum}}</view>
           </view>
           <view class='que-tag'>
             <image src='../../imgs/chak.png' class='icons' />
-            <view>{{item.viewnum}}</view>
+            <view class='return-num'>{{item.viewnum}}</view>
           </view>
         </view>
       </navigator>
@@ -41,6 +41,8 @@
 
   </view>
 </scroll-view>
+<!-- <view class='question' bindtap='bindtapAsk'>提问</view> -->
+<!-- <image src='../../imgs/add_fill.png' class= 'addquestion' bindtap='bindtapAsk'/> -->
   
 
 <!-- </view> -->

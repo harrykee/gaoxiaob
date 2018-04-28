@@ -1,114 +1,79 @@
 // pages/comp/more/more.js
+const apiUrl = getApp().globalData.apiUrl;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    schnews: [{
-      news: "2017年时事政治：2017厦门金砖会议",
-    },
-    {
-      news: "这套金砖国家必知考题，你能对多少",
-    },
-    {
-      news: "这套金砖国家必知考题，你能对多少",
-    },
-    {
-      news: "2017年时事政治：2017厦门金砖会议",
-    },
-    {
-      news: "这套金砖国家必知考题，你能对多少",
-    },
-    {
-      news: "这套金砖国家必知考题，你能对多少",
-    },
-    {
-      news: "2017年时事政治：2017厦门金砖会议",
-    },
-    {
-      news: "这套金砖国家必知考题，你能对多少",
-    },
-    {
-      news: "这套金砖国家必知考题，你能对多少",
-    },
-    {
-      news: "2017年时事政治：2017厦门金砖会议",
-    },
-    {
-      news: "这套金砖国家必知考题，你能对多少",
-    },
-    {
-      news: "这套金砖国家必知考题，你能对多少",
-    },
-    {
-      news: "2017年时事政治：2017厦门金砖会议",
-    },
-    {
-      news: "这套金砖国家必知考题，你能对多少",
-    },
-    {
-      news: "这套金砖国家必知考题，你能对多少",
-    },
-    {
-      news: "2017年时事政治：大数据看金砖峰",
-    }],
-
+    apiUrl:apiUrl,
+    start:0,
+    pageSize:7,
+    isFormload:true,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var catekey = options.catekey
+    var start = 0
+    var pageSize = this.data.pageSize
+    const that = this
+    wx.request({
+      url: apiUrl,
+      data:{
+        ac:'getMoreArticle',
+        catekey:catekey,
+        start:start,
+        pageSize:pageSize
+      },
+      success:function(res){
+        console.log(res.data)
+        that.setData({
+          articleList: res.data.articleList,
+          catekey: catekey
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  scrollLower: function () {
+    var pageSize = this.data.pageSize
+    var start = this.data.start
+    let that = this;
+    that.setData({
+      start: (start * 1) + (pageSize * 1),
+      isFormload: false
+    });
+    that.loadMore();
   },
+  loadMore: function () {
+    wx.showLoading({
+      title: '加载更多...',
+    })
+    let searchList = []
+    var start = this.data.start
+    var pageSize = this.data.pageSize
+    var catekey=this.data.catekey
+    var that = this
+    wx.request({
+      url: apiUrl,
+      data: {
+        ac: 'getMoreArticle',
+        catekey: catekey,
+        start: start,
+        pageSize: pageSize
+      },
+      success: function (res) {
+        that.data.isFormload ? searchList = res.data.articleList : searchList = that.data.articleList.concat(res.data.articleList)
+        that.setData({
+          articleList: searchList
+        })
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+        setTimeout(function () {
+          wx.hideLoading()
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })

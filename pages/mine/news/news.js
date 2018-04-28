@@ -1,18 +1,31 @@
 // pages/mine/news/news.js
+var apiUrl = getApp().globalData.apiUrl;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    apiUrl:apiUrl
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    const that = this
+    wx.request({
+      url: apiUrl,
+      data:{
+        ac:'newsList',
+        userid:getApp().globalData.openid
+      },
+      success:function(res){
+        that.setData({
+          newslist:res.data.newslist
+        })
+      }
+    })
   },
 
   /**
@@ -26,7 +39,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.onLoad();
   },
 
   /**

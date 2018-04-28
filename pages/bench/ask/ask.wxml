@@ -3,7 +3,7 @@
   <view class='answer-write'>
   <textarea class="program-write-main" fixed="true" maxlength="2000" placeholder="问题内容" focus='true' name='problem'></textarea>
   <view class='put-question'>
-    <button class='question' form-type='submit'>提交</button>
+    <button class='question' form-type='submit'>提  交</button>
   </view>
 </view>
 </form>

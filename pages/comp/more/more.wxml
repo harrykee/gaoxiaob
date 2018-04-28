@@ -1,12 +1,15 @@
 <!--pages/comp/more/more.wxml-->
-<view>
-  <view wx:for="{{schnews}}">
-    <navigator open-type='navigate' url='../article/article'>
-      <view class='news-list'>
-      <image src='../../../imgs/point.png' style='margin-left:30rpx;height:40rpx;width:40rpx;' />
-      <text style='margin-left:10rpx;'>{{item.news}}</text>
+<scroll-view scroll-y bindscrolltolower="scrollLower" style='height:100%;width:100%;'>
+  <view class='global-back'>
+    <view wx:for="{{articleList}}" class='new-tittle'>
+      <navigator open-type='navigate' url='../article/article?articlekey={{item.artkey}}'>
+        <view class='news-list'>
+          <text class='item-tittle'>{{item.tittle}}</text>
+          <text class='item-date'>{{item.artdate}}</text>
+          <text class='item-context'>{{item.context}}</text>
+          
+        </view>
+      </navigator>
     </view>
-    </navigator>
-    
   </view>
-</view>
+</scroll-view>

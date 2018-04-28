@@ -1,17 +1,46 @@
 /* pages/comp/more/more.wxss */
-.new-tittle{
-  height:96rpx;
+page{
+  height:100%;
   width:100%;
+}
+.global-back{
+  height:auto;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.new-tittle{
+  height:auto;
+  width:92%;
   border-bottom: 1rpx solid #EEEEEE;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 
 }
 .news-list{
-  height:80rpx;
+  height:auto;
   width:100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-tittle{
+  font-size:36rpx;
+  font-weight: bold;
+  margin-top:15rpx;
+}
+.item-context{
+  font-size:30rpx;
+  color:#707070;
+  margin-top:10rpx;
+  border-bottom: 15rpx solid #FFFFFF;
+}
+.item-date{
+  font-size:22rpx;
+  color:#707070;
+  margin-left:500rpx;
+
 }

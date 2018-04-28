@@ -11,7 +11,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    // wx.request({
+    //   url: apiUrl,
+    //   data:{}
+    // })
   },
 
   problemSubmit:function(e){
@@ -43,11 +46,11 @@ Page({
           if (res.data == 'success') {
             wx.switchTab({
               url: '../../bench/bench',
-              // success: function (e) {
-              //   var page = getCurrentPages().pop();
-              //   if (page == undefined || page == null) return;
-              //   page.onLoad();
-              // } 
+              success: function (e) {
+                var page = getCurrentPages().pop();
+                if (page == undefined || page == null) return;
+                page.onLoad();
+              } 
             })
           }
         }

@@ -1,6 +1,7 @@
-<view class='que-global'>
-  <view class='cards'>
-    <view class='que-card'>
+<scroll-view scroll-y bindscrolltolower="loadScrollLower" style='height:100%;'>
+  <view class='que-global'>
+    <view class='cards'>
+      <view class='que-card'>
         <view class='quetioner'>
           <view class='quetion-infomatin'>
             <image src='{{uhead}}' style='height:80rpx;width:80rpx;  border-radius: 8rpx;' />
@@ -9,34 +10,34 @@
               <text style='font-size:30rpx;color:#E2E2E2;'>{{protime}}</text>
             </view>
           </view>
-          
+
           <text style='font-size:38rpx;'>{{procontext}}</text>
         </view>
+      </view>
     </view>
-  </view>
-  <view class='answer-module'>
-    <view class='tittle'> 
-      <image src='../../../imgs/anwsers.png' style='height:50rpx;width:50rpx;'/>
-      <text style='margin-left:20rpx;'>{{nums}}条回答</text>
-    </view>
-    <view class='anwser-card' wx:for="{{answerlist}}" wx:key="key">
-    <view class='que-card'>
-        <view class='quetioner'>
-          <view class='quetion-infomatin'>
-            <image src='{{item.uhead}}' style='height:80rpx;width:80rpx;  border-radius: 8rpx;' />
-            <view class='quetion-name-time'>
-              <text>{{item.uname}}</text>
-              <text style='font-size:30rpx;color:#E2E2E2;'>{{item.ansdate}}</text>
+    <view class='answer-module'>
+      <view class='tittle'>
+        <image src='../../../imgs/anwsers.png' style='height:50rpx;width:50rpx;' />
+        <text style='margin-left:20rpx;'>{{nums}}条回答</text>
+      </view>
+      <view class='anwser-card' wx:for="{{answerlist}}" wx:key="key">
+        <view class='que-card'>
+          <view class='quetioner'>
+            <view class='quetion-infomatin'>
+              <image src='{{item.uhead}}' style='height:80rpx;width:80rpx;  border-radius: 8rpx;' />
+              <view class='quetion-name-time'>
+                <text>{{item.uname}}</text>
+                <text style='font-size:30rpx;color:#E2E2E2;'>{{item.ansdate}}</text>
+              </view>
             </view>
+
+            <text style='font-size:36rpx;'>{{item.anscontext}}</text>
           </view>
-          
-          <text style='font-size:36rpx;'>{{item.anscontext}}</text>
         </view>
+      </view>
     </view>
   </view>
-  </view>
-</view>
-
+</scroll-view>
 <view class='answer' bindtap="bindtapWrite" hidden='{{hidden}}'>
   <image src='../../../imgs/write.png' style='height:56rpx;width:56rpx;'></image>
   <text style='color:#FFFFFF;margin-left:20rpx;'>我来回答</text>

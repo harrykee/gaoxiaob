@@ -2,7 +2,7 @@
 
 
 <view>
-  <view class="title"> <image src='../../imgs/host.png' style='height:55rpx;width:55rpx;'/> <text style='margin-left:16rpx;'></text>
+  <view class="title"> <image src='../../imgs/host.png' style='height:55rpx;width:55rpx;' /> <text style='margin-left:16rpx;'></text>
   热门高校</view>
   
   <view class='school-card' wx:for="{{college}}" wx:key="key">

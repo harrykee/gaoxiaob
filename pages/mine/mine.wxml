@@ -36,7 +36,7 @@
     <image src='../../imgs/arrows.png' style='height:60rpx;width:60rpx;'/>
   </view>
 </view>
-<view class='strip-title' bindtap='LinkToreads'>
+<view class='strip-title' bindtap='LinkTocollect'>
   <view class='head-por'>
     <image src='../../imgs/collec.png' style='height:60rpx;width:60rpx;' />
   </view>

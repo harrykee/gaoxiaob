@@ -1,16 +1,71 @@
 <!--pages/mine/qanda/qanda.wxml-->
 <view class="swiper-tab">
-  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">我的提问</view>
-  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">我的回答</view>
+  <view class="swiper-tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">我的提问</view>
+  <view class="swiper-tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">我的回答</view>
   
 </view>
-<swiper current="{{currentTab}}"  duration="300" style="height:90%;margin-top:80rpx;" bindchange="bindChange">
+<swiper current="{{currentTab}}"  duration="300" style="height:91%;" bindchange="bindChange">
   <swiper-item>
-    <view>阿深V大V打算范德萨理科女删除不差那款</view>
+
+  <scroll-view scroll-y bindscrolltolower="scrollLower" style='height:100%;'>
+  <view class='que-global'> 
+    <view class='answer-module'>
+      <view class='anwser-card' wx:for="{{listData}}" wx:key="key">
+      <navigator url='../../bench/detpro/detpro?prokey={{item.ckey}}' open-type='navigate'>
+        <view class='que-card'>
+          <view class='quetioner'>
+            <view class='quetion-infomatin'>
+              <image src='{{item.uhead}}' style='height:80rpx;width:80rpx;  border-radius: 8rpx;' />
+              <view class='quetion-name-time'>
+                <text>{{item.uname}}</text>
+                <text style='font-size:30rpx;color:#E2E2E2;'>{{item.protime}}</text>
+              </view>
+            </view>
+
+            <text style='font-size:36rpx;'>{{item.context}}</text>
+          
+          </view>
+        </view>
+      </navigator>
+        
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
   </swiper-item>
     
   <swiper-item>
-    <view>是撒旦法师</view>
+
+   <scroll-view scroll-y bindscrolltolower="scrollLower" style='height:100%;'>
+  <view class='que-global'> 
+    <view class='answer-module'>
+      <view class='anwser-card' wx:for="{{listData}}" wx:key="key">
+        <navigator url='../../bench/detpro/detpro?prokey={{item.ckey}}' open-type='navigate'>
+          <view class='que-card'>
+          <view class='quetioner'>
+            <view class='quetion-infomatin'>
+              <image src='{{item.uhead}}' style='height:80rpx;width:80rpx;  border-radius: 8rpx;' />
+              <view class='quetion-name-time'>
+                <text>{{item.uname}}</text>
+                <text style='font-size:30rpx;color:#E2E2E2;'>{{item.protime}}</text>
+              </view>
+            </view>
+
+            <text style='font-size:36rpx;'>{{item.context}}</text>
+            <view class='question-detail'>
+            <view>回答 <text>{{item.askname}}：</text></view>
+            <text>{{item.askcontext}}</text>
+            </view>
+            
+          </view>
+        </view>
+      </navigator>
+        
+      </view>
+    </view>
+  </view>
+</scroll-view>
   </swiper-item>
 
 </swiper>

@@ -1,1 +1,59 @@
 /* pages/comp/sundry/sundry.wxss */
+page{
+  height:100%;
+  width:100%;
+}
+.search-back{
+  height:18%;
+  width:100%;
+}
+.search-surface{
+  height:60%;
+  width:100%;
+  background-color: #EEEEEE;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+.input-value{
+  height:50%;
+  width:280rpx;
+  margin-left:20rpx;
+  background-color:#FFF;
+}
+.search-button{
+  position: absolute;
+  right:30rpx;
+  height:70rpx;
+  width:70rpx;
+}
+.th{
+  height:40%;
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #EAF4FD;
+  font-size:23rpx;
+}
+.tr{
+  height:70rpx;
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 23rpx;
+}
+.td{
+  width:93.75rpx;
+  color: #2C2C2C;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.tr:nth-child(ood){
+  background-color: #FFFFFF;
+}
+.tr:nth-child(even){
+  background-color: #EEEEEE;
+}

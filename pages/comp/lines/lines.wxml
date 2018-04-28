@@ -1,6 +1,11 @@
 <!--pages/comp/lines/lines.wxml-->
 
 <view class="tab">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      <text>{{array[index]}} </text> <image src='../../../imgs/select.png' style='height:33rpx;width:33rpx;margin-left:40rpx;margin-top:5rpx;'/>
+    </view>
+  </picker>
   <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">文科</view>
   <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">理科</view>
 </view>
@@ -14,12 +19,12 @@
 </view>
 
 <view class="swiper-tab">
-  <view class="swiper-tab-list {{convertTab==0 ? 'ons' : ''}}" data-current="0" bindtap="swichTab">{{year-1}}</view>
-  <view class="swiper-tab-list {{convertTab==1 ? 'ons' : ''}}" data-current="1" bindtap="swichTab">{{year-2}}</view>
-  <view class="swiper-tab-list {{convertTab==2 ? 'ons' : ''}}" data-current="2" bindtap="swichTab">{{year-3}}</view>
-  <view class="swiper-tab-list {{convertTab==3 ? 'ons' : ''}}" data-current="3" bindtap="swichTab">{{year-4}}</view>
-  <view class="swiper-tab-list {{convertTab==4 ? 'ons' : ''}}" data-current="4" bindtap="swichTab">{{year-5}}</view>
-  <view class="swiper-tab-list {{convertTab==5 ? 'ons' : ''}}" data-current="5" bindtap="swichTab">{{year-6}}</view>
+  <view class="swiper-tab-list {{yearTab==0 ? 'ons' : ''}}" data-current="0" bindtap="swichTab">{{year-1}}</view>
+  <view class="swiper-tab-list {{yearTab==1 ? 'ons' : ''}}" data-current="1" bindtap="swichTab">{{year-2}}</view>
+  <view class="swiper-tab-list {{yearTab==2 ? 'ons' : ''}}" data-current="2" bindtap="swichTab">{{year-3}}</view>
+  <view class="swiper-tab-list {{yearTab==3 ? 'ons' : ''}}" data-current="3" bindtap="swichTab">{{year-4}}</view>
+  <view class="swiper-tab-list {{yearTab==4 ? 'ons' : ''}}" data-current="4" bindtap="swichTab">{{year-5}}</view>
+  <view class="swiper-tab-list {{yearTab==5 ? 'ons' : ''}}" data-current="5" bindtap="swichTab">{{year-6}}</view>
 </view>
 
 <view class='score-table'>
@@ -34,7 +39,7 @@
     <view class='td'>{{item.fare_year}}</view>
     <view class='td'>{{item.fare_lend}}</view>
     <view class='td'>{{item.art_science}}</view>
-    <view class='td'style='width:190rpx;'>{{item.fare_batch}}</view>
+    <view class='td'style='width:190rpx;font-size:28rpx;'>{{item.fare_batch}}</view>
     <view class='td'>{{item.control_line}}</view>
   </view>
 </view>

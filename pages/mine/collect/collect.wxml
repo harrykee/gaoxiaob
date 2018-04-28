@@ -1,0 +1,18 @@
+<!--pages/mine/collect/collect.wxml-->
+<scroll-view scroll-y bindscrolltolower="scrollLower" style='height:100%;width:100%;'>
+  <view class='global-back'>
+    <view wx:for="{{articleList}}" class='new-tittle'>
+      <navigator open-type='navigate' url='../../comp/article/article?articlekey={{item.artkey}}'>
+        <view class='news-list'>
+          <text class='item-tittle'>{{item.tittle}}</text>
+          <text class='item-context'>{{item.context}}</text>
+          <view class='item-all'>
+            <text class='item-class'>{{item.classname}}</text>
+            <text class='item-date'>{{item.artdate}}</text>
+          </view>
+          
+        </view>
+      </navigator>
+    </view>
+  </view>
+</scroll-view>

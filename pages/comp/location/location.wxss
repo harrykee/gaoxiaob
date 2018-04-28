@@ -1,5 +1,28 @@
 /* pages/comp/location/location.wxss */
-page{
+ page{
   height:100%;
   width:100%;
+}
+.map-head{
+  height:8%;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+.search-address{
+  height:70rpx;
+  width:70rpx;
+  position: absolute;
+  right:20rpx; 
+}
+.display-address{
+  height:100rpx;
+  width:100%;
+  position: fixed;
+  bottom:0;
+  background-color: #FFF;
+  filter:opacity(60%);
+  font-size:30rpx;
 }

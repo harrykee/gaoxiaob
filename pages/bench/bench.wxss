@@ -4,42 +4,45 @@ page{
   width:100%;
 }
 .quetion-back{
-  height:10%;
+  height:8%;
   width:100%;
-  position: fixed;
-  top:0rpx;
-  background-color: #EEEEEE;
-  border-bottom: 1rpx solid #EEEEEE;
+  background-color: #DE3344;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .input-like{
-  height:60rpx;
-  width:400rpx;
-  border: 1rpx solid #DE3344;
-
-}
-.question{
-  position: absolute;
-  top:6rpx;
-  right:20rpx;
+  height:80%;
+  width:70%;
+  background-color: #FFFFFF;
+  border-radius: 6rpx;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content:center;
-  height:70rpx;
-  width:124rpx;
-  color: #FFFFFF;
-  font-size:34rpx;
-  background-color:#DE3344;
-  border-radius: 8rpx;
+  filter:opacity(60%);
 
+}
+.search-img{
+  height: 60rpx;
+  width:60rpx;
+  margin-left:16rpx;
+}
+.input{
+  width:80%;
+
+}
+
+.addask{
+  height:70rpx;
+  width:70rpx;
+  margin-left:50rpx;
 }
 .que-global{
   width:100%;
-  height:90%;
+  height:92%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-top:100rpx solid #FFFFFF;
 }
 .quetioner{
   height:auto;
@@ -101,4 +104,9 @@ page{
 .icons{
   height:40rpx;
   width:40rpx;
+}
+.return-num{
+  color:#777777;
+  margin-left:6rpx;
+  font-size:32rpx;
 }

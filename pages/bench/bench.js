@@ -31,7 +31,7 @@ Page({
   },
   onLoad: function () {
     const that = this;
-    var start = this.data.start
+    var start = 0
     var pageSize = this.data.pageSize
     var search = this.data.search
     wx.request({
@@ -90,7 +90,7 @@ Page({
   },
 
   bindtapAsk:function(){
-    wx.redirectTo({
+    wx.navigateTo({
       url: 'ask/ask',
       success: function(res) {},
       fail: function(res) {},
@@ -112,12 +112,13 @@ Page({
         },
         success:function(res){
           that.setData({
-            problems: res.data.problems
+            problems: res.data.problems,
+            search: search
           })
         }
     })
     that.setData({
-      search:search
+      search: search
     })
   }
 }) 

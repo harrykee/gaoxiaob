@@ -1,0 +1,26 @@
+<!--pages/mine/newfull/newfull.wxml-->
+<view class='que-global'> 
+    <view class='answer-module'>
+      <view class='anwser-card'>
+          <view class='que-card'>
+          <view class='quetioner'>
+            <view class='quetion-infomatin'>
+              <image src='{{anshead}}' style='height:80rpx;width:80rpx;  border-radius: 8rpx;' />
+              <view class='quetion-name-time'>
+                <text>{{ansname}}</text>
+                <text style='font-size:30rpx;color:#E2E2E2;'>{{ansdate}}</text>
+              </view>
+            </view>
+
+            <text style='font-size:36rpx;'>{{anscontext}}</text>
+            <view class='question-detail'>
+            <view>回答 <text>{{askname}}：</text></view>
+            <text>{{askcontext}}</text>
+            </view>
+            
+          </view>
+        </view>
+        
+      </view>
+    </view>
+  </view>

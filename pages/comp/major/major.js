@@ -1,18 +1,40 @@
 // pages/comp/major/major.js
+const apiUrl = getApp().globalData.apiUrl
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    apiUrl:apiUrl
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var pid = options.pid
+    const that = this
+    wx.request({
+      url: apiUrl,
+      data:{
+        ac:'majorDetail',
+        pid:pid
+      },
+      success:function(res){
+        that.setData({
+          pid:res.data.pid,
+          pname:res.data.pname,
+          related: res.data.related,
+          pclass: res.data.pclass,
+          mclass: res.data.mclass,
+          practice: res.data.practice,
+          objective: res.data.objective,
+          trequire: res.data.trequire,
+          direction: res.data.direction
+        })
+      }
+    })
   },
 
   /**

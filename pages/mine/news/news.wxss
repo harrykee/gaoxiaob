@@ -1,1 +1,26 @@
 /* pages/mine/news/news.wxss */
+.global-back{
+  height:auto;
+  width:100%;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}
+.news-list{
+  height:140rpx;
+  width:90%;
+  border-bottom: 1rpx solid #EEEEEE;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.quecont{
+  font-size:34rpx;
+}
+.new-other{
+  font-size: 30rpx;
+  color: red;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

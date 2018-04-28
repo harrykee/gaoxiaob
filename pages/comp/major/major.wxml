@@ -2,16 +2,64 @@
 <view class='major-global'>
   <view class='major-detail'>
     <view class='majorname'>
-      计算机科学与技术
+      <text>{{pname}}</text>
     </view>
     <view class='major-basic'>
-      <view>主干学科：计算机科学</view>
-      <view>主要课程：编译原理，计算机组成原理，操作系统</view>
+      <view class='suject-child' style='width:100%;'>
+        <text class='suject-child-desc'>专业代号：</text>
+        <text class='suject-child-name'>{{pid}}</text>
+      </view>
+
+      <view class='subject'>
+
+        <view class='suject-child'>
+          <text class='suject-child-desc'>类别：</text>
+          <text class='suject-child-name'>{{pclass}}</text>
+        </view>
+
+        <view class='suject-child'>
+          <text class='suject-child-desc'>学科：</text>
+          <text class='suject-child-name'> {{mclass}}</text>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <view style='width:100%;height:14rpx;background-color:#EEE;'></view>
+  <view class='major-detail'>
+    <view class='otherdetail'>
+      <view class='other-tittle'>专业介绍</view>
+      <view class='other-context'>
+      <view class='other-context-child'>{{related}}</view>
+      </view>
     </view>
 
     <view class='otherdetail'>
-      <view>教学实践</view>
-      <view>毕业实践不少20周</view>
+      <view class='other-tittle'>学习课程</view>
+      <view class='other-context'>
+      <view class='other-context-child'>{{practice}}</view>
+      </view>
+    </view>
+
+    <view class='otherdetail'>
+      <view class='other-tittle'>培养目标</view>
+      <view class='other-context'>
+      <view class='other-context-child'>{{objective}}</view>
+      </view>
+    </view>
+
+    <view class='otherdetail'>
+      <view class='other-tittle'>培养要求</view>
+      <view class='other-context'>
+      <view class='other-context-child'>{{trequire}}</view>
+      </view>
+    </view>
+
+    <view class='otherdetail'>
+      <view class='other-tittle'>就业前景</view>
+      <view class='other-context'>
+      <view class='other-context-child'>{{direction}}</view>
+      </view>
     </view>
   </view>
   

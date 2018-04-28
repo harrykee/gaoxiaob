@@ -30,11 +30,10 @@ page{
   padding-top:20rpx;
 }
 .list-card{
-  height:70rpx;
+  height:80rpx;
   width:680rpx;
   display: flex;
   flex-direction: row;
-  align-items: center;
 }
 .contet-text{
   height:auto;
@@ -42,21 +41,26 @@ page{
   font-size:33rpx;
 }
 .college-table{
-  height:80rpx;
+  height:70rpx;
   width:100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 35rpx;
+  font-size: 34rpx;
 }
 .college-table:nth-child(ood){
   background-color: #ffffff;
 }
 .college-table:nth-child(even){
-  background-color: #F3AD9C;
+  background-color: #EEEEEE;
 }
-.map-like{
-  height:500rpx;
-  width:680rpx;
+.neme-describe{
+  font-size:36rpx;
+  color:#707070;
+  width:200rpx;
+}
+.name-context{
+  width:480rpx;
+  font-size:36rpx;
 }

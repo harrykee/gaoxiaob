@@ -1,12 +1,17 @@
 <!--pages/comp/article/article.wxml-->
+<import src="../../../wxParse/wxParse.wxml"/>
 <view class='article-global'>
-  <view class='article-tittle'>这套金砖国家必知考题，你能对多少</view>
+  <view class='article-tittle'>{{tittle}}</view>
   <view class='article-other'>
-    <view style='margin-left:40rpx;'>2018-03-08</view>
-    <view style='margin-left:40rpx;'>浏览1000</view>
-    <image src=''></image>
+    <text style='margin-left:40rpx;color:#707070;'>{{artdate}}</text>
+    <image src='{{artview}}' style='height:44rpx;width:44rpx;margin-left:300rpx;'/>
+    <text style='color:#707070;margin-left:6rpx;'>{{views}}</text>
+    <!-- <image src='{{collect}}' style='height:56rpx;width:56rpx;margin-left:16rpx;' bindtap='collectionBind' /> -->
+     <image src='{{notcoll}}' style='height:56rpx;width:56rpx;margin-left:16rpx;' bindtap='notcollectionBind' hidden='{{notchidden}}'/>
+
+    <image src='{{collection}}' style='height:56rpx;width:56rpx;margin-left:16rpx;' bindtap='collectionBind' hidden='{{collhidden}}'/> 
   </view>
   <view class='article-body'>
-    {{articlebody}}
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/> 
   </view>
 </view>

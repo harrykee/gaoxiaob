@@ -1,6 +1,10 @@
 // pages/home/detail/detail.js
 var apiUrl = getApp().globalData.apiUrl;
 
+
+
+var WxParse = require('../../../wxParse/wxParse.js');
+
 Page({
 
   /**
@@ -46,9 +50,28 @@ Page({
       },
       success:function(res){
         console.log(res.data)
-        that.setData({
-          abst: res.data.abst
+        var article = res.data.abst
+        WxParse.wxParse('article', 'html', article, that); 
+        that.setData({   
+          schname: res.data.schname,
+          schmotto: res.data.schmotto,
+          schaddress: res.data.schaddress,
+          schloca: res.data.schloca,
+          schmold: res.data.schmold,
+          schurl: res.data.schurl,
+          schtel: res.data.schtel,
+          piclist: res.data.piclist
         })
+        if(res.data.collegelist){
+          that.setData({
+            collegelist:res.data.collegelist
+          })
+        }
+        if (res.data.majorlist) {
+          that.setData({
+            majorlist: res.data.majorlist
+          })
+        }
 
       }
     })

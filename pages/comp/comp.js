@@ -7,31 +7,7 @@ Page({
    */
   data: {
     apiUrl:apiUrl,
-    schnews:[{
-      news:"2017年时事政治：2017厦门金砖会议",
-    },
-      {
-        news: "这套金砖国家必知考题，你能对多少",
-      },
-      {
-        news: "这套金砖国家必知考题，你能对多少",
-      },
-      {
-        news: "2017年时事政治：大数据看金砖峰",
-      }],
-
-    reviewways: [{
-      ways: "高考理综三巨头之一：生物的备考技巧",
-    },
-    {
-      ways: "高考理综无耻得分法汇总",
-    },
-    {
-      ways: "高考理综无耻得分法汇总",
-    },
-    {
-      ways: "学霸分享：高三尖子生的数学成绩提高",
-    }]
+    
   },
 
   /**
@@ -45,7 +21,11 @@ Page({
       success:function(res){
         that.setData({
           ktittles: res.data.ktitles,
-          wtittles: res.data.wtitles
+          wtittles: res.data.wtitles,
+          kcateid:res.data.kcateid,
+          wcateid:res.data.wcateid,
+          kclass: res.data.kclass,
+          wclass: res.data.wclass
         })
       }
     })
@@ -58,9 +38,17 @@ Page({
   onReady: function () {
   
   },
-  GetNewsMore:function(){
+  GetMoreArt:function(){
+    var kcateid = this.data.kcateid
     wx.navigateTo({
-      url: 'more/more',
+      url: 'more/more?catekey='+kcateid,
+    })
+  },
+
+  GetMoreList:function(){
+    var wcateid = this.data.wcateid
+    wx.navigateTo({
+      url: 'more/more?catekey='+wcateid,
     })
   },
 
@@ -87,6 +75,11 @@ Page({
   GotoLocation:function(){
     wx.navigateTo({
       url: 'location/location',
+    })
+  },
+  GotoSundry: function () {
+    wx.navigateTo({
+      url: 'sundry/sundry',
     })
   },
   /**

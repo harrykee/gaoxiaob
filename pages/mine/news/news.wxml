@@ -1,2 +1,11 @@
 <!--pages/mine/news/news.wxml-->
-<text>pages/mine/news/news.wxml</text>
+<view class='global-back'>
+  <view class='news-list' wx:for="{{newslist}}" wx:key='key'>
+  <navigator open-type='navigate' url='../newfull/newfull?prokey={{item.prokey}}&userid={{item.ansid}}&newdate={{item.newdate}}&newid={{item.newid}}'>
+      <text>{{item.newdate}}</text>
+      <view><text>{{item.newcont}}</text>回答了你的问题</view>   
+  </navigator>
+    
+    
+  </view>
+</view>

@@ -1,74 +1,85 @@
 <!--pages/home/detail/detail.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
 <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" style='height: 34%;'>
-  <block wx:for="{{imgUrls}}" wx:key="key">
+  <block wx:for="{{piclist}}" wx:key="key">
     <swiper-item>
-      <image src="{{item.route}}" class="slide-image" style="width: {{imageWidth}}px;" />
+      <image src="{{item.schpic}}" class="slide-image" style="width: {{imageWidth}}px;" />
     </swiper-item>
   </block>
 </swiper>
 
-<view class="swiper-tab"> 
-  <view class="swiper-tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">基本信息</view> 
-  <view class="swiper-tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">学校简介</view> 
-  <view class="swiper-tab-item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">学院设置</view> 
+<view class="swiper-tab">
+  <view class="swiper-tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">基本信息</view>
+  <view class="swiper-tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">学校简介</view>
+  <view class="swiper-tab-item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">院系设置</view>
   <view class="swiper-tab-item {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">专业设置</view>
-  
-</view> 
-<swiper current="{{currentTab}}" class="swiper-box" style="height:56%;" bindchange="bindChange"> 
-  <swiper-item> 
-   <view class='detail-list'> 
-    <view class='list-card'>
-      <view>学校名称：</view>
-      <view>厦门大学</view>    
-    </view>
-    <view class='list-card'>
-      <view>学校名称：</view>
-      <view>厦门大学</view>    
-    </view>
-    <view class='list-card'>
-      <view>学校名称：</view>
-      <view>厦门大学</view>    
-    </view>
-    <view class='list-card'>
-      <view>学校名称：</view>
-      <view>厦门大学</view>    
-    </view>
-    <view class='list-card'>
-      <view>学校地址：</view>
-      <view>厦门市思明区</view>    
-    </view>
-   </view>
-  </swiper-item> 
+
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" style="height:56%;" bindchange="bindChange">
   <swiper-item>
-  <scroll-view scroll-y style='height:100%;' >
-   <view class='detail-list'>
-    <text class='contet-text'>
-      {{abst}}
-    </text>    
-   </view> 
-   </scroll-view> 
-  </swiper-item> 
-  <swiper-item> 
-   <view class='detail-list'>
-    <view style='width:94%;'>
-      <view class='college-table' wx:for="{{colleges}}" wx:key="key">
-        <view>{{item.name}}</view> 
+    <view class='detail-list'>
+      <view class='list-card'>
+        <view class='neme-describe'>学校名称：</view>
+        <view class='name-context'>{{schname}}</view>
       </view>
-      
+      <view class='list-card'>
+        <view class='neme-describe'>校训：</view>
+        <view class='name-context'>{{schmotto}}</view>
+      </view>
+      <view class='list-card'>
+        <view class='neme-describe'>所在地：</view>
+        <view class='name-context'>{{schloca}}</view>
+      </view>
+      <view class='list-card'>
+        <view class='neme-describe'>学校类型：</view>
+        <view class='name-context'>{{schmold}}</view>
+      </view>
+      <view class='list-card'>
+        <view class='neme-describe'>学校网址：</view>
+        <view class='name-context'>{{schurl}}</view>
+      </view>
+      <view class='list-card'>
+        <view class='neme-describe'>招生电话：</view>
+        <view class='name-context'>{{schtel}}</view>
+      </view>
+      <view class='list-card' style='height:auto'>
+        <view class='neme-describe'>学校地址：</view>
+        <view class='name-context'>{{schaddress}}</view>
+      </view>
     </view>
-   </view> 
-  </swiper-item> 
-  <swiper-item> 
-   <view class='detail-list'>
-    <view style='width:94%;'>
-      <view class='college-table' wx:for="{{colleges}}" wx:key="key">
-        <view>{{item.name}}</view> 
-      </view> 
-    </view>
-   </view> 
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y style='height:100%;'>
+      <view class='detail-list'>
+        <view style='width:94%;'>
+          <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y style='height:100%;'>
+      <view class='detail-list'>
+        <view style='width:94%;'>
+          <view class='college-table' wx:for="{{collegelist}}" wx:key="key">
+            <view>{{item.college}}</view>
+          </view>
+
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y style='height:100%;'>
+      <view class='detail-list'>
+        <view style='width:94%;'>
+          <view class='college-table' wx:for="{{majorlist}}" wx:key="key">
+          <navigator style='width:100%;height:70rpx;display:flex;flex-direction:row;align-items:center;justify-content: center;' open-type='navigate' url='../../comp/major/major?pid={{item.majorid}}'>
+            <view >{{item.major}}</view>
+          </navigator>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
   </swiper-item>
 </swiper>
-
-
-
-

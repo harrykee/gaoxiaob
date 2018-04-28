@@ -40,7 +40,15 @@ canvas{
 }  
 .ons{ color: #da7c0c;}  
   
-/* .swiper-box{ display: block; height: 40%; width: 100%; overflow: hidden;position: relative;}   */
+.picker{
+  width:200rpx;
+  display: flex;
+  flex-direction: row;
+   align-items: center; 
+  /* justify-content: center; */
+  color: #515151;
+  padding-left: 20rpx;
+}
 
 
 .score-table{

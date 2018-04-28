@@ -1,2 +1,30 @@
 <!--pages/comp/sundry/sundry.wxml-->
-<text>pages/comp/sundry/sundry.wxml</text>
+
+
+<view class='search-back'>
+  <view class='search-surface'>
+    <input class='input-value' placeholder='专业名称' placeholder-style='color: #bfbfbf;font-size:30rpx;' bindinput='majorInput'/>
+
+    <input class='input-value' placeholder='高校名称' placeholder-style='color: #bfbfbf;font-size:30rpx;' bindinput='schoolInput'/>
+    <image src='../../../imgs/searchscore.png' class='search-button' bindtap='searchScore'/>
+  </view>
+  <view class='th'>
+    <view class='td'>年份</view>
+    <view class='td' style='width:187.5rpx;'>专业名称</view>
+    <view class='td' style='width:187.5rpx;'>高校名称</view>
+    <view class='td'>科别</view>
+    <view class='td'>平均分</view>
+    <view class='td'>批次</view>
+  </view>
+</view>
+
+<scroll-view scroll-y bindscrolltolower="ScrollLower" style='height:82%;width:100%;'>
+  <view class='tr' wx:for="{{scorelist}}" wx:key="key">
+    <view class='td'>{{item.par_year}}</view>
+    <view class='td' style='width:187.5rpx;'>{{item.major_name}}</view>
+    <view class='td' style='width:187.5rpx;'>{{item.school_name}}</view>
+    <view class='td'>{{item.category}}</view>
+    <view class='td'>{{item.aver_score}}</view>
+    <view class='td'>{{item.batch}}</view>
+  </view>
+</scroll-view>

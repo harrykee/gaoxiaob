@@ -1,21 +1,23 @@
 <!--pages/comp/knows/knows.wxml-->
 <view class='search-card'>
   <view class='search-background'>
-    <input class='search-write' type='text' placeholder='专业搜索' placeholder-style='color: #707070;font-size:33rpx;'></input>
-    <image src='../../../imgs/search.png' style='height:50rpx;width:50rpx;' bindtap='ListSchools'/>
+    <image src='../../../imgs/serchs.png' style='height:60rpx;width:60rpx;margin-left:14rpx;' />
+    <input class='search-write' type='text' placeholder='专业搜索' placeholder-style='color: #707070;font-size:33rpx;' bindinput='searchInput' />
+
   </view>
 </view>
-
+<scroll-view scroll-y bindscrolltolower="scrollLower" style='height:92%;'>
 <view class='sch-global'>
-  <view class='school-list' wx:for="{{majors}}">
-    <navigator style='display:flex;flex-direction:column;'  open-type='navigate' url='../major/major'>
+  <view class='school-list' wx:for="{{majorList}}">
+    <navigator style='display:flex;flex-direction:column;'  open-type='navigate' url='../major/major?pid={{item.majorid}}'>
     <view class='include'>
-      <view>{{item.majorname}}</view> 
-      <text class='major-detail'>授予学位门类：{{item.subject}}</text>
-      <text class='major-detail'>相关专业：{{item.related}}</text>
+      <text class='major-name'>{{item.majorname}}</text> 
+      <text class='major-detail'>专业类别：{{item.cate}}</text>
+      <text class='major-detail'>专业介绍：{{item.related}}</text>
 
     </view>
     </navigator>
     
   </view>
 </view>
+</scroll-view>

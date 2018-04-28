@@ -1,0 +1,15 @@
+<!--pages/comp/search/search.wxml-->
+<view class='serarch-result'>
+  <view class='search-background'>
+    <image src='../../../imgs/serchs.png' style='height:60rpx;width:60rpx;margin-left:14rpx;' />
+    <input class='search-write' type='text' placeholder='高校搜索' placeholder-style='color: #707070;font-size:33rpx;' bindinput='searchInput' />
+  </view>
+  <view class='result'>
+    <view class='result-list' wx:for="{{resultlist}}" wx:key="key">
+    <navigator open-type='navigate' url='../location/location?lat={{item.location.lat}}&lng={{item.location.lng}}'>
+      <text>{{item.title}}</text>
+    </navigator>
+    
+    </view>  
+  </view>
+</view>

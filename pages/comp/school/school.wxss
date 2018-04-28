@@ -1,8 +1,10 @@
 /* pages/comp/school/school.wxss */
+page{
+  height:100%;
+  width:100%;
+}
 .search-card{
-  position: fixed;
-  top:0rpx;
-  height:80rpx;
+  height:8%;
   width:100%;
   background-color: #DE3344;
   display: flex;
@@ -10,25 +12,23 @@
   justify-content: center;
 }
 .search-background{
-  height:60rpx;
-  width:500rpx;
+  height:70%;
+  width:80%;
   background-color: #FFFFFF;
   border:1rpx solid #FFFFFF;
   border-radius: 6rpx;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
+   align-items: center; 
   filter:opacity(80%);
-  margin-left:30rpx;
 }
 .search-write{
-  height:50rpx;
+  margin-left:30rpx;
+  height:55rpx;
   width:400rpx;
 }
 
 .sch-global{
-  border-top:80rpx solid #ffffff;
   height:auto;
   width:100%;
   display: flex;
