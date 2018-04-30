@@ -1,7 +1,10 @@
 <!--pages/bench/bench.wxml-->
  <view class='quetion-back'> 
-  <view class='input-like'><image src='../../imgs/serchs.png' class='search-img'/><input class='input' placeholder='输入你想知道的问题' placeholder-style='color: #bfbfbf;font-size:30rpx;' bindinput='searchInput'/></view>
-  <image src='../../imgs/ask.png' class='addask' bindtap='bindtapAsk'/>
+  <view class='input-like'><image src='../../imgs/serchs.png' class='search-img'/><input class='input' placeholder='输入你感兴趣的内容检索' placeholder-style='color: #bfbfbf;font-size:30rpx;' bindinput='searchInput'/></view>
+  <button class='getUserInfomation'  open-type="getUserInfo" bindgetuserinfo='bindtapAsk'>
+     <image src='../../imgs/ask.png' class='addask' bindtap='bindtapAsk'/> 
+  </button>
+  
 </view> 
   
 

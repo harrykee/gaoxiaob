@@ -2,15 +2,16 @@
 <view class="top-background">
   <view>
     <view class="background-img">
-      <image src='{{userpic}}' class="tx-img"></image>
+      <open-data class="tx-img" type="userAvatarUrl"></open-data>
     </view>
   </view>
-  <view class = 'username'>{{username}}</view>
+  <view class = 'username'><open-data type="userNickName" lang="zh_CN"></open-data></view>
 </view>
 
 <view class='strip-title' bindtap='LinkTonews'>
   <view class='head-por'>
     <image src='../../imgs/news.png' style='height:60rpx;width:60rpx;' />
+    <image src='../../imgs/uread.png' style='height:20rpx;width:20rpx;position:absolute;left:75rpx;margin-top:-15rpx;' hidden='{{hidden}}'/>
   </view>
   <view class='headline'>
     <text class='headedit'>我的消息</text>

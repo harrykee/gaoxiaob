@@ -41,19 +41,19 @@
 
 <view class='th'>
   <view class='td'>年份</view>
-  <view class='td' style='width:150rpx;'>录取批次</view>
-  <view class='td'>文理科</view>
+  <view class='td'>批次</view>
+  <view class='td' style='width:250rpx;'>学校名称</view>
+  <view class='td'>科别</view>
   <view class='td'>最高分</view>
-  <view class='td'>最低分</view>
   <view class='td'>平均分</view>
 </view>
 <scroll-view scroll-y bindscrolltolower="ScrollLower" style='height:68%;width:100%;'>
   <view class='tr' wx:for="{{scorelist}}" wx:key="key">
     <view class='td'>{{item.enrollyear}}</view>
-    <view class='td' style='width:150rpx;font-size:31rpx;'>{{item.batch}}</view>
+    <view class='td'>{{item.batch}}</view>
+    <view class='td' style='width:250rpx;'>{{item.schname}}</view>
     <view class='td'>{{item.artsci}}</view>
     <view class='td'>{{item.highest}}</view>
-    <view class='td'>{{item.minnum}}</view>
     <view class='td'>{{item.avarge}}</view>
   </view>
 </scroll-view>

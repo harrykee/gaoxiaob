@@ -38,7 +38,7 @@
     </view>
   </view>
 </scroll-view>
-<view class='answer' bindtap="bindtapWrite" hidden='{{hidden}}'>
+<button class='answer' open-type="getUserInfo" bindgetuserinfo='bindtapWrite' hidden='{{hidden}}'>
   <image src='../../../imgs/write.png' style='height:56rpx;width:56rpx;'></image>
   <text style='color:#FFFFFF;margin-left:20rpx;'>我来回答</text>
-</view>
+</button>

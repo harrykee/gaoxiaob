@@ -9,11 +9,11 @@ page{
   background-color: #DE3344;
   display: flex;
   flex-direction: row;
-  justify-content: center;
 }
 .input-like{
   height:80%;
   width:70%;
+  margin-left:40rpx;
   background-color: #FFFFFF;
   border-radius: 6rpx;
   display: flex;
@@ -35,7 +35,6 @@ page{
 .addask{
   height:70rpx;
   width:70rpx;
-  margin-left:50rpx;
 }
 .que-global{
   width:100%;
@@ -109,4 +108,20 @@ page{
   color:#777777;
   margin-left:6rpx;
   font-size:32rpx;
+}
+.getUserInfomation{
+  z-index: 2;
+  height:74rpx;
+  width:74rpx;
+  margin-left:50rpx;
+  background-color: #DE3344;
+  /* border:1rpx solid #DE3344; */
+  padding:0;
+  border-radius: 0;
+  
+}
+.getUserInfomation::after{
+  border:1rpx solid #DE3344;
+  padding:0;
+  border-radius:0;
 }

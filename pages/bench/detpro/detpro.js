@@ -72,14 +72,64 @@ Page({
     console.log(prokey)
   },
 
-  bindtapWrite: function () {
+  bindtapWrite: function (e) {
     const prokey = this.data.prokey
-    wx.navigateTo({
-      url: '../write/write?prokey='+prokey,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+    var nickName = e.detail.userInfo.nickName
+    var avatarUrl = e.detail.userInfo.avatarUrl
+    if (nickName && avatarUrl) {
+      wx.request({
+        url: apiUrl,
+        data: {
+          ac: 'userExist',
+          userid: getApp().globalData.openid
+        },
+        success: res => {
+          console.log(res.data)
+          if (res.data == 'yes') {
+            wx.navigateTo({
+              url: '../write/write?prokey=' + prokey,
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+
+           
+          }
+          else{
+            wx.showModal({
+              title: '将获取您的头像和昵称',
+              success: function (res) {
+                if (res.confirm) {
+                  wx.request({
+                    url: apiUrl,
+                    data: {
+                      ac: 'userInfo',
+                      userid: getApp().globalData.openid,
+                      nickName: nickName,
+                      nickName: avatarUrl
+                    },
+                    success: res => {
+                      console.log(res.data)
+                      wx.navigateTo({
+                        url: '../write/write?prokey=' + prokey,
+                        success: function (res) { },
+                        fail: function (res) { },
+                        complete: function (res) { },
+                      })
+                    }
+                  })
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
+              }
+            })
+          }
+
+          
+        }
+      })
+    }
+
   },
 
   loadScrollLower: function () {

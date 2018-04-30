@@ -3,28 +3,36 @@
 
 <view class='search-back'>
   <view class='search-surface'>
-    <input class='input-value' placeholder='专业名称' placeholder-style='color: #bfbfbf;font-size:30rpx;' bindinput='majorInput'/>
+    <input class='input-value' placeholder='专业名称' placeholder-style='color: #bfbfbf;font-size:30rpx;' bindinput='majorInput' />
 
-    <input class='input-value' placeholder='高校名称' placeholder-style='color: #bfbfbf;font-size:30rpx;' bindinput='schoolInput'/>
-    <image src='../../../imgs/searchscore.png' class='search-button' bindtap='searchScore'/>
+    <input class='input-value' placeholder='高校名称' placeholder-style='color: #bfbfbf;font-size:30rpx;' bindinput='schoolInput' />
+    <image src='../../../imgs/searchscore.png' class='search-button' bindtap='searchScore' />
   </view>
+  <view class='picker-back'>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">
+        年份选择：{{array[index]}}
+      </view>
+    </picker>
+  </view>
+
   <view class='th'>
     <view class='td'>年份</view>
     <view class='td' style='width:187.5rpx;'>专业名称</view>
     <view class='td' style='width:187.5rpx;'>高校名称</view>
-    <view class='td'>科别</view>
+    <view class='td'>最高分</view>
     <view class='td'>平均分</view>
-    <view class='td'>批次</view>
+    <view class='td'>更多</view>
   </view>
 </view>
 
-<scroll-view scroll-y bindscrolltolower="ScrollLower" style='height:82%;width:100%;'>
+<scroll-view scroll-y bindscrolltolower="ScrollLower" style='height:78%;width:100%;'>
   <view class='tr' wx:for="{{scorelist}}" wx:key="key">
     <view class='td'>{{item.par_year}}</view>
     <view class='td' style='width:187.5rpx;'>{{item.major_name}}</view>
     <view class='td' style='width:187.5rpx;'>{{item.school_name}}</view>
-    <view class='td'>{{item.category}}</view>
+    <view class='td'>{{item.highest}}</view>
     <view class='td'>{{item.aver_score}}</view>
-    <view class='td'>{{item.batch}}</view>
+    <view class='td' style='color:#DE3344' data-sname="{{item.school_name}}" data-mname="{{item.major_name}}" data-year="{{item.par_year}}" data-cate="{{item.category}}" data-batch = "{{item.batch}}" data-prov="{{item.student_loca}}" bindtap='SpecialtyDetail'>{{item.detail}}</view>
   </view>
 </scroll-view>

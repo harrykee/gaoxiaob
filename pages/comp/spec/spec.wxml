@@ -1,0 +1,46 @@
+<!--pages/comp/spec/spec.wxml-->
+<view class='global-back'>
+  <view class='detail-list'>
+    <view class='list-card'>
+      <view class='neme-describe'>学校名称：</view>
+      <view class='name-context'>{{school}}</view>
+    </view>
+    <view class='list-card'>
+      <view class='neme-describe'>专业名称：</view>
+      <view class='name-context'>{{major}}</view>
+    </view>
+    <view class='list-card'>
+      <view class='neme-describe'>考生地区：</view>
+      <view class='name-context'>{{local}}</view>
+    </view>
+    <view class='list-card'>
+      <view class='neme-describe'>年份：</view>
+      <view class='name-context'>{{year}}</view>
+    </view>
+    <view class='list-card'>
+      <view class='neme-describe'>科别：</view>
+      <view class='name-context'>{{category}}</view>
+    </view>
+    <view class='list-card'>
+      <view class='neme-describe'>批次：</view>
+      <view class='name-context'>{{batch}}</view>
+    </view>
+    <view class='list-card'>
+      <view class='neme-describe'>省控制线：</view>
+      <view class='name-context'>{{control}}</view>
+    </view>
+    <view class='list-card'>
+      <view class='neme-describe'>最高分：</view>
+      <view class='name-context'>{{highest}}</view>
+    </view>
+    <view class='list-card' >
+      <view class='neme-describe'>最低分：</view>
+      <view class='name-context'>{{lowest}}</view>
+    </view>
+    <view class='list-card'>
+      <view class='neme-describe'>平均分：</view>
+      <view class='name-context'>{{aver}}</view>
+    </view>
+    
+  </view>
+</view>

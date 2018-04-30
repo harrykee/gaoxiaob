@@ -1,10 +1,13 @@
 // pages/mine/mine.js
+const apiUrl = getApp().globalData.apiUrl;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    apiUrl:apiUrl,
+    hidden:true,
   },
 
   LinkTonews:function(){
@@ -31,10 +34,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      username: getApp().globalData.userInfo.nickName,
-      userpic: getApp().globalData.userInfo.avatarUrl
+    const that = this
+    wx.request({
+      url: apiUrl,
+      data:{ac:'haveMessages',userid:getApp().globalData.openid},
+      success:res=>{
+        if(res.data>0){
+          that.setData({
+            hidden:false
+          })
+        }
+        
+      }
     })
+    // this.setData({
+    //   username: getApp().globalData.userInfo.nickName,
+    //   userpic: getApp().globalData.userInfo.avatarUrl
+    // })
   },
 
   /**

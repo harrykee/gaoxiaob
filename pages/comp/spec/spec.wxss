@@ -1,0 +1,28 @@
+/* pages/comp/spec/spec.wxss */
+.global-back{
+  height: auto;
+  width:100%;
+}
+.detail-list{
+  height:auto;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top:50rpx;
+}
+.list-card{
+  height:80rpx;
+  width:680rpx;
+  display: flex;
+  flex-direction: row;
+}
+.neme-describe{
+  font-size:36rpx;
+  color:#707070;
+  width:200rpx;
+}
+.name-context{
+  width:480rpx;
+  font-size:36rpx;
+}

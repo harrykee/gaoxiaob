@@ -9,6 +9,17 @@ Page({
 
   
   data: {
+    controls: [{
+      id: 1,
+      iconPath: '../../../imgs/searchadd.png',
+      position: {
+        left: 300,
+        top: 10,
+        width: 50,
+        height: 50
+      },
+      clickable: true
+    }]
   },
 
   onLoad: function (options) {
@@ -91,7 +102,7 @@ Page({
     }
     
   },
-  toMapSearch:function(){
+  controltap:function(){
     wx.redirectTo({
       url: '../search/search',
       success: function(res) {},

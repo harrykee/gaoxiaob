@@ -90,7 +90,7 @@ page{
   flex-direction: row;
   align-items: center;
   background-color: #F4585B;
-  font-size:33rpx;
+  font-size:26rpx;
 }
 .tr{
   height:70rpx;
@@ -98,10 +98,10 @@ page{
   display:flex;
   flex-direction: row;
   align-items: center;
-  font-size: 33rpx;
+  font-size: 24rpx;
 }
 .td{
-  width:120rpx;
+  width:100rpx;
   color: #2C2C2C;
   display: flex;
   flex-direction: row;

@@ -12,7 +12,10 @@
   width:300rpx;
   color: #FFFFFF;
   background-color:#DE3344;
-  border-radius: 10rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 
 }
 .answer-write{

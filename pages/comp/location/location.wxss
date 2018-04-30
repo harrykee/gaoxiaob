@@ -3,7 +3,7 @@
   height:100%;
   width:100%;
 }
-.map-head{
+/* .map-head{
   height:8%;
   width:100%;
   display: flex;
@@ -16,9 +16,9 @@
   width:70rpx;
   position: absolute;
   right:20rpx; 
-}
+} */
 .display-address{
-  height:100rpx;
+  height:140rpx;
   width:100%;
   position: fixed;
   bottom:0;

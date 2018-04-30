@@ -12,7 +12,7 @@
   </view>
 
   <view class='comp-list' style='background-color:#89D453;' bindtap='GotoSundry'>
-    <image src='../../imgs/table.png' style='height:60rpx;width:60rpx;'></image>
+    <image src='../../imgs/majorl.png' style='height:60rpx;width:60rpx;'></image>
     <text style='color:#FFFFFF;'>专业分数线</text>
   </view>
 

@@ -8,26 +8,6 @@ Page({
     pageSize: 6,
     isFromSearch: true,
     search:'',
-    quetions:[
-      {
-        head: "../../imgs/txmb.jpg",
-        name: "木小鱼鱼",
-        dates: "2018-04-07",
-        tittle: "这是哪首安放到沙发上法师打啊学校",
-        time: "1小时前",
-        anwsers: "30",
-        views: "123"
-      },
-      {
-        head: "../../imgs/txmb.jpg",
-        name: "木小鱼鱼",
-        dates: "2018-04-07",
-        tittle: "这是哪首阿三发射点嘎啊是刚刚和人学校",
-        time: "1小时前",
-        anwsers: "30",
-        views: "123"
-      }
-    ]
   },
   onLoad: function () {
     const that = this;
@@ -89,13 +69,58 @@ Page({
     })
   },
 
-  bindtapAsk:function(){
-    wx.navigateTo({
-      url: 'ask/ask',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
+  bindtapAsk:function(e){
+    var nickName = e.detail.userInfo.nickName
+    var avatarUrl = e.detail.userInfo.avatarUrl
+    if(nickName&&avatarUrl){
+      wx.request({
+        url: apiUrl,
+        data: {
+          ac: 'userExist',
+          userid: getApp().globalData.openid
+        },
+        success: res => {
+          console.log(res.data)
+          if (res.data == 'yes') {
+            wx.navigateTo({
+              url: 'ask/ask',
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+            
+          }
+          else{
+
+            wx.showModal({
+              title: '将获取您的头像和昵称',
+              success: function (res) {
+                if (res.confirm) {
+                  wx.request({
+                    url: apiUrl,
+                    data: {
+                      ac: 'userInfo',
+                      userid: getApp().globalData.openid,
+                      nickName: nickName,
+                      nickName: avatarUrl
+                    },
+                    success: res => {
+                      console.log(res.data)
+                    }
+                  })
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
+              }
+            })
+
+
+            
+          }         
+        }
+      })
+    }
+    
   },
   searchInput:function(e){
     const that = this

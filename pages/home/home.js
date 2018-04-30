@@ -19,6 +19,21 @@ Page({
         })
       }
     })
+    wx.login({
+      success: res => {
+        var code = res.code
+        wx.request({
+          url: apiUrl,
+          data: {
+            ac: "getOpenid",
+            code: code
+          },
+          success: function (res) {
+            getApp().globalData.openid = res.data.openid
+          }
+        })
+      }
+    })
   },
   onShareAppMessage: function () {
   
